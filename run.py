@@ -78,7 +78,7 @@ def save_vault(vault):
         json.dump(vault, file)
 
 
-def add_new_password(vault, account, username, password):
+def add_new_password(vault):
     """
     Add a new password to the vault.
     """
@@ -95,22 +95,21 @@ def add_new_password(vault, account, username, password):
 
 
 
-def get_password(username, password, vault, account):
+def get_password(vault):
     """
     Retrieve a password from the vault.
     """
     account = input("Enter the account you want to retrieve the password for: ").strip()
     if account in vault:
-        print(f"Username for your {account}: {username}")
-        print(f"Password for your {account}: {password}")
-
+        print(f"Username for your {account}: {vault[account]['username']}")
+        print(f"Password for your {account}: {vault[account]['password']}")
     else:
         print(f"❌ No account found for {account}.")
 
 
 
 
-def view_accounts(vault, account):
+def view_accounts(vault):
     """
     View all stored accounts in the vault.
     """
@@ -123,7 +122,7 @@ def view_accounts(vault, account):
 
 
 
-def delete_account(vault, account):
+def delete_account(vault):
     """
     Delete an account from the vault.
     """
