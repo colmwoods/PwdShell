@@ -2,7 +2,7 @@ import getpass
 import os
 import json
 
-def main():
+def main(vault, account, username, password):
 
     print("🔐 Welcome to PwdShell")
     master = getpass.getpass("Enter master password: ")
@@ -20,6 +20,27 @@ def main():
         print("3. View All Accounts")
         print("4. Delete An Account")
         print("5. Exit")
+
+        choice = input("Enter your choice (1-5): ").strip()
+
+        if choice == '1':
+            add_new_password(vault, account, username, password)
+
+        elif choice == '2':
+            get_password(username, password, vault, account)
+
+        elif choice == '3':
+            view_accounts(vault, account)
+
+        elif choice == '4':
+            delete_account(vault, account)
+
+        elif choice == '5':
+            print("Exiting PwdShell. Stay secure!")
+            break
+
+        else:
+            print("❌ Invalid choice. Please select a valid option.")
 
 def add_new_password(vault, account, username, password):
     account = input("Enter the account you will be adding, e.g. google, twitter etc: ").strip()
