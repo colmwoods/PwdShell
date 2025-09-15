@@ -3,6 +3,9 @@ import os
 import json
 
 def add_new_password(vault, account, username, password):
+    """
+    Add a new password to the vault.
+    """
     account = input("Enter the account you will be adding, e.g. google, twitter etc: ").strip()
     username = input(f"Enter the username for your {account} account: ").strip()
     password = getpass.getpass(f"Enter the password for your{account} account: ").strip()
@@ -17,6 +20,9 @@ def add_new_password(vault, account, username, password):
 
 
 def get_password(username, password, vault, account):
+    """
+    Retrieve a password from the vault.
+    """
     account = input("Enter the account you want to retrieve the password for: ").strip()
     if account in vault:
         print(f"Username for your {account}: {username}")
@@ -29,6 +35,9 @@ def get_password(username, password, vault, account):
 
 
 def view_accounts(vault, account):
+    """
+    View all stored accounts in the vault.
+    """
     if vault:
         print("🔑 Stored Accounts:")
         for account in vault:
@@ -39,6 +48,9 @@ def view_accounts(vault, account):
 
 
 def delete_account(vault, account):
+    """
+    Delete an account from the vault.
+    """
     account = input("Enter the account you want to delete: ").strip()
     if account in vault:
         del vault[account]
@@ -49,6 +61,9 @@ def delete_account(vault, account):
 
 
 def main(vault, account, username, password):
+    """
+    Main function to run the password manager.
+    """
 
     print("🔐 Welcome to PwdShell")
     master = getpass.getpass("Enter master password: ")
