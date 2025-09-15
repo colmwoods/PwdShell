@@ -2,7 +2,12 @@ import getpass
 import os
 import json
 from cryptography.fernet import Fernet
+import hashlib
 
+def master_password():
+    """
+    Prompt the user to set a master password and return its hash.
+    """
 def load_key():
     """
     Load the encryption key from file, or generate a new one.
