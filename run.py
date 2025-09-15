@@ -4,7 +4,13 @@ import json
 
 def main():
 
-    
+    print("🔐 Welcome to PwdShell")
+    master = getpass.getpass("Enter master password: ")
+
+    if not master.strip():
+        print("❌ Invalid master password.")
+        return
+
 
     while True:
         # Menu Options
