@@ -122,14 +122,6 @@ def main(vault, account, username, password):
     Main function to run the password manager.
     """
 
-    print("🔐 Welcome to PwdShell")
-    master = getpass.getpass("Enter master password: ")
-
-    if not master.strip():
-        print("❌ Invalid master password.")
-        return
-
-
     while True:
         # Menu Options
         print("\nOptions:")
