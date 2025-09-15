@@ -4,6 +4,27 @@ import json
 from cryptography.fernet import Fernet
 import hashlib
 
+def set_master_password():
+    """
+    Prompt the user to set a master password and return its hash.
+    """
+    while True:
+        master_password = getpass.getpass("Set your master password: ")
+        confirm_password = getpass.getpass("Confirm your master password: ")
+
+        if master_password != confirm_password:
+            print("❌ Passwords do not match. Please try again.")
+
+        elif not master_password.strip():
+            print("❌ Master password cannot be empty. Please try again.")
+        
+        else:
+            hashed_password = hashlib.sha256(master_password.encode()).hexdigest()
+            with open("master.key", "w") as file:
+                file.write(hashed_password)
+            print("✅ Master password set successfully.")
+            return hashed_password
+
 def master_password():
     """
     Prompt the user to set a master password and return its hash.
