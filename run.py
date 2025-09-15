@@ -27,8 +27,24 @@ def set_master_password():
 
 def master_password():
     """
-    Prompt the user to set a master password and return its hash.
+    Verify the master password entered by the user.
     """
+    if not os.path.exists("master.key"):
+        set_master_password()
+
+    with open("master.key", "r") as f:
+        stored_hash = f.read().strip()
+
+    master = getpass.getpass("Enter master password: ").strip()
+    hashed = hashlib.sha256(master.encode()).hexdigest()
+
+    if hashed == stored_hash:
+        print("🔓 Access granted.")
+        return True
+    else:
+        print("❌ Incorrect master password. Exiting.")
+        return False
+    
 def load_key():
     """
     Load the encryption key from file, or generate a new one.
@@ -121,6 +137,8 @@ def main(vault, account, username, password):
     """
     Main function to run the password manager.
     """
+    if not master_password():
+        return
 
     while True:
         # Menu Options
