@@ -29,7 +29,7 @@ def add_new_password():
 
 
 
-def get_password(username, password, vault, service):
+def get_password(username, password, vault, account):
     account = input("Enter the account you want to retrieve the password for: ").strip()
     if account in vault:
         print(f"Username for your {account}: {username}")
@@ -41,7 +41,13 @@ def get_password(username, password, vault, service):
 
 
 
-def view_accounts():
+def view_accounts(vault, account):
+    if vault:
+        print("🔑 Stored Accounts:")
+        for account in vault:
+            print(f"- {account}")
+    else:
+        print("❌ No accounts stored yet.")
 
 
 
