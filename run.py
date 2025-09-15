@@ -2,46 +2,6 @@ import getpass
 import os
 import json
 
-def main(vault, account, username, password):
-
-    print("🔐 Welcome to PwdShell")
-    master = getpass.getpass("Enter master password: ")
-
-    if not master.strip():
-        print("❌ Invalid master password.")
-        return
-
-
-    while True:
-        # Menu Options
-        print("\nOptions:")
-        print("1. Add New Password")
-        print("2. Get Password")
-        print("3. View All Accounts")
-        print("4. Delete An Account")
-        print("5. Exit")
-
-        choice = input("Enter your choice (1-5): ").strip()
-
-        if choice == '1':
-            add_new_password(vault, account, username, password)
-
-        elif choice == '2':
-            get_password(username, password, vault, account)
-
-        elif choice == '3':
-            view_accounts(vault, account)
-
-        elif choice == '4':
-            delete_account(vault, account)
-
-        elif choice == '5':
-            print("Exiting PwdShell. Stay secure!")
-            break
-
-        else:
-            print("❌ Invalid choice. Please select a valid option.")
-
 def add_new_password(vault, account, username, password):
     account = input("Enter the account you will be adding, e.g. google, twitter etc: ").strip()
     username = input(f"Enter the username for your {account} account: ").strip()
@@ -88,3 +48,45 @@ def delete_account(vault, account):
 
 
 
+def main(vault, account, username, password):
+
+    print("🔐 Welcome to PwdShell")
+    master = getpass.getpass("Enter master password: ")
+
+    if not master.strip():
+        print("❌ Invalid master password.")
+        return
+
+
+    while True:
+        # Menu Options
+        print("\nOptions:")
+        print("1. Add New Password")
+        print("2. Get Password")
+        print("3. View All Accounts")
+        print("4. Delete An Account")
+        print("5. Exit")
+
+        choice = input("Enter your choice (1-5): ").strip()
+
+        if choice == '1':
+            add_new_password(vault, account, username, password)
+
+        elif choice == '2':
+            get_password(username, password, vault, account)
+
+        elif choice == '3':
+            view_accounts(vault, account)
+
+        elif choice == '4':
+            delete_account(vault, account)
+
+        elif choice == '5':
+            print("Exiting PwdShell. Stay secure!")
+            break
+
+        else:
+            print("❌ Invalid choice. Please select a valid option.")
+
+if __name__ == "__main__":
+    main(vault={}, account="", username="", password="")
