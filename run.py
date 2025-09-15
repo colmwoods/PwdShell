@@ -11,7 +11,14 @@ def load_vault():
             return json.load(file)
     return {}
 
+def save_vault(vault):
+    """
+    Save the password vault to a JSON file.
+    """
+    with open("vault.json", "w") as file:
+        json.dump(vault, file)
 
+        
 def add_new_password(vault, account, username, password):
     """
     Add a new password to the vault.
