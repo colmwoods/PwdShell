@@ -22,6 +22,9 @@ def main():
         print("5. Exit")
 
 def add_new_password():
+    account = input("Enter the account you will be adding, e.g. google, twitter etc: ").strip()
+    username = input(f"Enter the username for your {account} account: ").strip()
+    password = getpass.getpass(f"Enter the password for your{account} account: ").strip()
 
 
 
