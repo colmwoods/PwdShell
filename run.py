@@ -82,7 +82,7 @@ def add_new_password(vault):
     """
     Add a new password to the vault.
     """
-    account = input("Enter the account you will be adding, e.g. google, twitter etc: ").strip()
+    account = input("Enter the account you will be adding, e.g. google, twitter etc: ").strip().lower()
     username = input(f"Enter the username for your {account} account: ").strip()
     password = getpass.getpass(f"Enter the password for your {account} account: ").strip()
 
