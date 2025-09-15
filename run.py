@@ -133,12 +133,14 @@ def delete_account(vault, account):
 
 
 
-def main(vault, account, username, password):
+def main():
     """
     Main function to run the password manager.
     """
     if not master_password():
         return
+    
+    vault = load_vault()
 
     while True:
         # Menu Options
@@ -152,16 +154,20 @@ def main(vault, account, username, password):
         choice = input("Enter your choice (1-5): ").strip()
 
         if choice == '1':
-            add_new_password(vault, account, username, password)
+            add_new_password(vault)
+            save_vault(vault)
 
         elif choice == '2':
-            get_password(username, password, vault, account)
+            get_password(vault)
+            save_vault(vault)
 
         elif choice == '3':
-            view_accounts(vault, account)
+            view_accounts(vault)
+            save_vault(vault)
 
         elif choice == '4':
-            delete_account(vault, account)
+            delete_account(vault)
+            save_vault(vault)
 
         elif choice == '5':
             print("Exiting PwdShell. Stay secure!")
