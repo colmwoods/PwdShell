@@ -57,6 +57,13 @@ def view_accounts(vault, account):
 
 
 
-def delete_account():
+def delete_account(vault, account):
+    account = input("Enter the account you want to delete: ").strip()
+    if account in vault:
+        del vault[account]
+        print(f"✅ {account} deleted successfully.")
+    else:
+        print(f"❌ No account found for {account}.")
+
 
 
