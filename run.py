@@ -1,6 +1,20 @@
 import getpass
 import os
 import json
+from cryptography.fernet import Fernet
+
+def load_key():
+    """
+    Load the encryption key from file, or generate a new one.
+    """
+    if not os.path.exists("key.key"):
+        key = Fernet.generate_key()
+        with open("key.key", "wb") as key_file:
+            key_file.write(key)
+    else:
+        with open("key.key", "rb") as key_file:
+            key = key_file.read()
+    return key
 
 def load_vault():
     """
@@ -18,14 +32,14 @@ def save_vault(vault):
     with open("vault.json", "w") as file:
         json.dump(vault, file)
 
-        
+
 def add_new_password(vault, account, username, password):
     """
     Add a new password to the vault.
     """
     account = input("Enter the account you will be adding, e.g. google, twitter etc: ").strip()
     username = input(f"Enter the username for your {account} account: ").strip()
-    password = getpass.getpass(f"Enter the password for your{account} account: ").strip()
+    password = getpass.getpass(f"Enter the password for your {account} account: ").strip()
 
     if account in vault:
         print(f"❌ {account} already exists.")
