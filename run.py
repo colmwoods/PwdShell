@@ -21,11 +21,17 @@ def main():
         print("4. Delete An Account")
         print("5. Exit")
 
-def add_new_password():
+def add_new_password(vault, account, username, password):
     account = input("Enter the account you will be adding, e.g. google, twitter etc: ").strip()
     username = input(f"Enter the username for your {account} account: ").strip()
     password = getpass.getpass(f"Enter the password for your{account} account: ").strip()
 
+    if account in vault:
+        print(f"❌ {account} already exists.")
+
+    else:
+        vault[account] = {"username": username, "password": password}
+        print(f"✅ {account} added successfully.")
 
 
 
