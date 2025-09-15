@@ -99,7 +99,7 @@ def get_password(vault):
     """
     Retrieve a password from the vault.
     """
-    account = input("Enter the account you want to retrieve the password for: ").strip()
+    account = input("Enter the account you want to retrieve the password for: ").strip().lower()
     if account in vault:
         print(f"Username for your {account}: {vault[account]['username']}")
         print(f"Password for your {account}: {vault[account]['password']}")
@@ -126,7 +126,7 @@ def delete_account(vault):
     """
     Delete an account from the vault.
     """
-    account = input("Enter the account you want to delete: ").strip()
+    account = input("Enter the account you want to delete: ").strip().lower()
     if account in vault:
         del vault[account]
         save_vault(vault)
