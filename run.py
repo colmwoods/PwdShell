@@ -2,6 +2,16 @@ import getpass
 import os
 import json
 
+def load_vault():
+    """
+    Load the password vault from a JSON file.
+    """
+    if os.path.exists("vault.json"):
+        with open("vault.json", "r") as file:
+            return json.load(file)
+    return {}
+
+
 def add_new_password(vault, account, username, password):
     """
     Add a new password to the vault.
