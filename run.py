@@ -177,4 +177,7 @@ def main():
             print("❌ Invalid choice. Please select a valid option.")
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("\n❌ Program interrupted by user. Exiting safely...")
