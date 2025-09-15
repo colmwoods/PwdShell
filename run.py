@@ -171,4 +171,4 @@ def main(vault, account, username, password):
             print("❌ Invalid choice. Please select a valid option.")
 
 if __name__ == "__main__":
-    main(vault={}, account="", username="", password="")
+    main()
