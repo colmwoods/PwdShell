@@ -63,8 +63,11 @@ def load_vault():
     Load the password vault from a JSON file.
     """
     if os.path.exists("vault.json"):
-        with open("vault.json", "r") as file:
-            return json.load(file)
+        try:
+            with open("vault.json", "r") as file:
+                return json.load(file)
+        except json.JSONDecodeError:
+            return {}
     return {}
 
 def save_vault(vault):
@@ -159,15 +162,12 @@ def main():
 
         elif choice == '2':
             get_password(vault)
-            save_vault(vault)
 
         elif choice == '3':
             view_accounts(vault)
-            save_vault(vault)
 
         elif choice == '4':
             delete_account(vault)
-            save_vault(vault)
 
         elif choice == '5':
             print("Exiting PwdShell. Stay secure!")
