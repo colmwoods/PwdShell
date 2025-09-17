@@ -4,26 +4,51 @@ import json
 from cryptography.fernet import Fernet
 import hashlib
 
-def set_master_password():
+user_sessions = {}
+
+def set_master_password(user_id="default_user"):
     """
     Prompt the user to set a master password and return its hash.
     """
-    while True:
-        master_password = getpass.getpass("Set your master password: ")
-        confirm_password = getpass.getpass("Confirm your master password: ")
+    running_on_heroku = "DYNO" in os.environ
+    if running_on_heroku:
+        if user_id in user_sessions:
+            return user_sessions[user_id]
 
-        if master_password != confirm_password:
-            print("❌ Passwords do not match. Please try again.")
+        while True:
+            master_password = getpass.getpass("Set your master password: ")
+            confirm_password = getpass.getpass("Confirm your master password: ")
 
-        elif not master_password.strip():
-            print("❌ Master password cannot be empty. Please try again.")
+            if master_password != confirm_password:
+                print("❌ Passwords do not match. Please try again.")
+            elif not master_password.strip():
+                print("❌ Master password cannot be empty. Please try again.")
+            else:
+                user_sessions[user_id] = master_password
+                print("✅ Master password set successfully (Heroku session only).")
+                return master_password
+    else:
+        if os.path.exists("master.key"):
+            with open("master.key", "r") as file:
+               return file.read().strip()
         
-        else:
-            hashed_password = hashlib.sha256(master_password.encode()).hexdigest()
-            with open("master.key", "w") as file:
-                file.write(hashed_password)
-            print("✅ Master password set successfully.")
-            return hashed_password
+        
+        while True:
+            master_password = getpass.getpass("Set your master password: ")
+            confirm_password = getpass.getpass("Confirm your master password: ")
+
+            if master_password != confirm_password:
+                print("❌ Passwords do not match. Please try again.")
+
+            elif not master_password.strip():
+                print("❌ Master password cannot be empty. Please try again.")
+        
+            else:
+                hashed_password = hashlib.sha256(master_password.encode()).hexdigest()
+                with open("master.key", "w") as file:
+                    file.write(hashed_password)
+                print("✅ Master password set successfully.")
+                return hashed_password
 
 def master_password():
     """
