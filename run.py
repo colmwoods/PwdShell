@@ -4,6 +4,7 @@ import json
 from cryptography.fernet import Fernet
 import hashlib
 
+
 def clear():
     """
     Function to clear terminal through the game.
@@ -12,6 +13,7 @@ def clear():
 
 
 user_sessions = {}
+
 
 def set_master_password(user_id="default_user"):
     """
@@ -24,7 +26,8 @@ def set_master_password(user_id="default_user"):
 
         while True:
             master_password = getpass.getpass("Set your master password: ")
-            confirm_password = getpass.getpass("Confirm your master password: ")
+            confirm_password = getpass.getpass(
+                "Confirm your master password: ")
 
             if master_password != confirm_password:
                 print("❌ Passwords do not match. Please try again.")
@@ -37,25 +40,27 @@ def set_master_password(user_id="default_user"):
     else:
         if os.path.exists("master.key"):
             with open("master.key", "r") as file:
-               return file.read().strip()
-        
-        
+                return file.read().strip()
+
         while True:
             master_password = getpass.getpass("Set your master password: ")
-            confirm_password = getpass.getpass("Confirm your master password: ")
+            confirm_password = getpass.getpass(
+                "Confirm your master password: ")
 
             if master_password != confirm_password:
                 print("❌ Passwords do not match. Please try again.")
 
             elif not master_password.strip():
                 print("❌ Master password cannot be empty. Please try again.")
-        
+
             else:
-                hashed_password = hashlib.sha256(master_password.encode()).hexdigest()
+                hashed_password = hashlib.sha256(
+                    master_password.encode()).hexdigest()
                 with open("master.key", "w") as file:
                     file.write(hashed_password)
                 print("✅ Master password set successfully.")
                 return hashed_password
+
 
 def master_password(user_id="default_user"):
     """
@@ -92,7 +97,8 @@ def master_password(user_id="default_user"):
         else:
             print("❌ Incorrect master password. Exiting.")
             return False
-    
+
+
 def load_key():
     """
     Load the encryption key from file, or generate a new one.
@@ -106,6 +112,7 @@ def load_key():
             key = key_file.read()
     return key
 
+
 def load_vault():
     """
     Load the password vault from a JSON file.
@@ -117,6 +124,7 @@ def load_vault():
         except json.JSONDecodeError:
             return {}
     return {}
+
 
 def save_vault(vault):
     """
@@ -130,9 +138,12 @@ def add_new_password(vault):
     """
     Add a new password to the vault.
     """
-    account = input("Enter the account you will be adding, e.g. google, twitter etc: ").strip().lower()
-    username = input(f"Enter the username for your {account} account: ").strip()
-    password = getpass.getpass(f"Enter the password for your {account} account: ").strip()
+    account = input(
+        "Enter the account you will be adding, e.g. google, twitter etc: ").strip().lower()
+    username = input(
+        f"Enter the username for your {account} account: ").strip()
+    password = getpass.getpass(
+        f"Enter the password for your {account} account: ").strip()
 
     if account in vault:
         print(f"❌ {account} already exists.")
@@ -142,19 +153,17 @@ def add_new_password(vault):
         print(f"✅ {account} added successfully.")
 
 
-
 def get_password(vault):
     """
     Retrieve a password from the vault.
     """
-    account = input("Enter the account you want to retrieve the password for: ").strip().lower()
+    account = input(
+        "Enter the account you want to retrieve the password for: ").strip().lower()
     if account in vault:
         print(f"Username for your {account}: {vault[account]['username']}")
         print(f"Password for your {account}: {vault[account]['password']}")
     else:
         print(f"❌ No account found for {account}.")
-
-
 
 
 def view_accounts(vault):
@@ -167,7 +176,6 @@ def view_accounts(vault):
             print(f"- {account}")
     else:
         print("❌ No accounts stored yet.")
-
 
 
 def delete_account(vault):
@@ -183,17 +191,15 @@ def delete_account(vault):
         print(f"❌ No account found for {account}.")
 
 
-
 def main():
     """
     Main function to run the password manager.
     """
     set_master_password()
 
-
     if not master_password():
         return
-    
+
     vault = load_vault()
 
     while True:
@@ -226,6 +232,7 @@ def main():
 
         else:
             print("❌ Invalid choice. Please select a valid option.")
+
 
 if __name__ == "__main__":
     try:
