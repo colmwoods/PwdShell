@@ -25,7 +25,7 @@ def set_master_password(user_id="default_user"):
                 print("❌ Master password cannot be empty. Please try again.")
             else:
                 user_sessions[user_id] = master_password
-                print("✅ Master password set successfully (Heroku session only).")
+                print("✅ Master password set successfully.")
                 return master_password
     else:
         if os.path.exists("master.key"):
@@ -63,7 +63,7 @@ def master_password(user_id="default_user"):
 
         attempt = getpass.getpass("Enter master password: ").strip()
         if attempt == user_sessions[user_id]:
-            print("🔓 Access granted (Heroku session).")
+            print("🔓 Access granted.")
             return True
         else:
             print("❌ Incorrect master password. Exiting.")
@@ -80,7 +80,7 @@ def master_password(user_id="default_user"):
         attempt_hash = hashlib.sha256(attempt.encode()).hexdigest()
 
         if attempt_hash == stored_hash:
-            print("🔓 Access granted (local).")
+            print("🔓 Access granted.")
             return True
         else:
             print("❌ Incorrect master password. Exiting.")
