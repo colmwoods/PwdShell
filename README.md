@@ -30,12 +30,6 @@ I chose this project because:
 
 ---
 
-![screenshot](documentation/mockup.png)  
-
-Source: [PwdShell amiresponsive](https://ui.dev/amiresponsive?url=https://pwdshell-6bf799458b95.herokuapp.com)
-
----
-
 ## UX
 
 ### The 5 Planes of UX
