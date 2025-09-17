@@ -4,6 +4,13 @@ import json
 from cryptography.fernet import Fernet
 import hashlib
 
+def clear():
+    """
+    Function to clear terminal through the game.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+
+
 user_sessions = {}
 
 def set_master_password(user_id="default_user"):
