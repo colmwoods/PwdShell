@@ -174,6 +174,30 @@ To follow best practice, a flowchart was created to illustrate the logic of **Pw
 It shows the cycle of setting/verifying a master password and the main menu actions.  
 
 ![flowchart](docs/img/flowchart.jpg)
+> Below is the interactive Mermaid flowchart equivalent of the program logic:  
+```mermaid
+flowchart TD
+    A([Start]) --> B{Master Password Exists?}
+    B -- No --> C[Create Master Password]
+    C --> D[Save]
+    D --> E[Password Correct?]
+    B -- Yes --> E
+
+    E -- No --> F([Exit])
+    E -- Yes --> G{Show Menu}
+
+    G --> H[Add an Account]
+    G --> I[Get Saved Password]
+    G --> J[View Accounts]
+    G --> K[Delete Account]
+    G --> L([Exit])
+
+    H --> G
+    I --> G
+    J --> G
+    K --> G
+    L --> M([Exit])
+
 
 ---
 
