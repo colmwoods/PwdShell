@@ -94,7 +94,7 @@ Screenshot of the terminal menu structure that users interact with after logging
 
 ## Wireframes
 
-Not applicable (terminal app).  
+“Instead of GUI wireframes, the terminal menu structure acts as the skeleton design. See screenshot below.”
 ![Wireframes](docs/img/terminal.jpg)
 
 ---
@@ -331,16 +331,15 @@ Deployed on Heroku using the [Code Institute Python template](https://github.com
 > [!NOTE]  
 > On the **Heroku deployed version** of PwdShell, the master password is stored **session-only**.  
 > - When you first visit the app, you will be prompted to create your own master password.  
-> - After a you press the run program button again, you will be prompted to set a new master password.  
+> - After you press the run program button again, you will be prompted to set a new master password.  
 >
 > This behavior is intentional, so that each user (including assessors) can create their own password without needing the developer’s local credentials.
 
 Deployment steps:  
-- Create Heroku app.  
+- Create a new Heroku app.  
 - Add buildpacks (`Python`, `Node.js`).  
 - Add files (`requirements.txt`, `Procfile`, `.python-version`).  
-- Connect GitHub repo + enable auto-deploy.  
- 
+- Connect GitHub repo and enable auto-deploy.  
 
 ---
 
@@ -352,15 +351,17 @@ Deployment steps:
 > - The password is hashed using **SHA-256** and saved to `master.key`.  
 > - On subsequent runs, you will be prompted to **enter your existing master password** for verification.  
 >
-> Unlike the Heroku version, the local master password is **persistent** and will remain the same until 
+> Unlike the Heroku version, the local master password is **persistent** and will remain the same until the `master.key` file is deleted or replaced.  
 
 Clone this repo:
 
-```bash
+```
+bash
 git clone https://www.github.com/colmwoods/PwdShell.git
 cd PwdShell
 python3 run.py
 ```
+
 ---
 
 ### Local vs Deployment
@@ -375,7 +376,6 @@ python3 run.py
 
 Apart from this difference in password handling, both versions function identically.  
 
----
 
 ## Credits
 
