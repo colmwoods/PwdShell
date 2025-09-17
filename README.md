@@ -82,12 +82,20 @@ Screenshot of the terminal menu structure that users interact with after logging
 - Minimal text UI.  
 - Symbols and dividers used for readability.  
 
+**Colours**
+- The terminal app relies on the system terminal’s default colour scheme.  
+- In future, the app could use [Colorama](https://pypi.org/project/colorama/) to add colour-coded menus and alerts.  
+
+**Typography**
+- The app uses the system’s default **monospaced font** (e.g., Consolas, Courier New, or Menlo depending on OS).  
+- This ensures consistent character alignment in the terminal.
+
 ---
 
 ## Wireframes
 
 Not applicable (terminal app).  
-<!-- Add mockup screenshot of terminal menu here -->
+![Wireframes](docs/img/terminal.jpg)
 
 ---
 
@@ -209,23 +217,6 @@ Deployment steps:
 
 ### Local Development
 
-Clone this repo:
-
-```bash
-git clone https://www.github.com/colmwoods/PwdShell.git
-cd PwdShell
-python3 run.py
-```
-### Local Development
-
-Clone this repo:
-
-```bash
-git clone https://www.github.com/colmwoods/PwdShell.git  
-cd PwdShell  
-python3 run.py  
-```
-
 > [!NOTE]  
 > On the **local version** of PwdShell, the master password is stored in a `master.key` file on your machine once you set it.  
 > - The first time you run the program, you will be prompted to create a master password.  
@@ -233,6 +224,28 @@ python3 run.py
 > - On subsequent runs, you will be prompted to **enter your existing master password** for verification.  
 >
 > Unlike the Heroku version, the local master password is **persistent** and will remain the same until 
+
+Clone this repo:
+
+```bash
+git clone https://www.github.com/colmwoods/PwdShell.git
+cd PwdShell
+python3 run.py
+```
+---
+
+### Local vs Deployment
+
+- **Heroku version**:  
+  - The master password is stored **session-only** (reset each time the “Run Program” button is pressed or the dyno restarts).  
+  - This ensures every user, including assessors, can create their own master password without needing the developer’s.  
+
+- **Local version**:  
+  - The master password is saved in a `master.key` file after setup.  
+  - It is **hashed with SHA-256** and persists across runs until the file is deleted or replaced.  
+
+Apart from this difference in password handling, both versions function identically.  
+
 ---
 
 ## Credits
