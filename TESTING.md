@@ -92,7 +92,13 @@ All user stories from the README were manually tested.
 
 - Fixed `PEP8` violations (E302, E501, W293, indentation issues).  
 - Fixed issue where mismatched passwords in setup caused crash → now loops until valid.  
-- Fixed JSON decode error when vault.json was empty/corrupted → now defaults to empty dict.  
+- Fixed JSON decode error when vault.json was empty/corrupted → now defaults to empty dict.
+- **Fixed Deployment Bug**: 
+  - Heroku defaulted to Python 3.13, causing dependency build errors (`pillow`, `numpy`).  
+  - Added `.python-version` file to pin Python to 3.12.  
+  - Cleaned up `requirements.txt` to include only actual dependencies (`cryptography`, `colorama`).  
+  - After these fixes, the build completed and the app deployed successfully.  
+
 
 ![screenshot](documentation/bugs/gh-issues-closed.png)
 
