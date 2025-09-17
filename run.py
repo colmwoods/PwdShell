@@ -181,9 +181,10 @@ def main():
     """
     Main function to run the password manager.
     """
-    set_master_password()  # ensures one exists
-    if not verify_master_password():
-        print("❌ Access denied.")
+    set_master_password()
+
+
+    if not master_password():
         return
     
     vault = load_vault()
