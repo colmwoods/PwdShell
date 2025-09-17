@@ -274,24 +274,36 @@ The main functions in **PwdShell** are:
 
 ## Agile Development Process
 
-- Managed with [GitHub Projects](https://www.github.com/colmwoods/PwdShell/projects).  
-- Used Issues for user stories, bugs, and tasks.  
-- Applied **MoSCoW prioritization** for feature importance.  
-
 ### GitHub Projects
-![Kanban Board](documentation/agile/kanban.png)
+
+[GitHub Projects](https://www.github.com/colmwoods/PwdShell/projects) served as the Agile tool for this project.  
+Through it, EPICs, User Stories, issues/bugs, and Milestone tasks were planned, then subsequently tracked on a regular basis using the Kanban board.  
+
+![Kanban Board](docs/img/kanban.jpg)
+
+---
 
 ### GitHub Issues
-| Type | Screenshot |
+
+[GitHub Issues](https://www.github.com/colmwoods/PwdShell/issues) served as another Agile tool.  
+Here I managed User Stories, Milestones, and tracked any bugs that were raised.  
+
+| Link | Screenshot |
 | --- | --- |
-| Open Issues | ![Open Issues](documentation/agile/open-issues.png) |
-| Closed Issues | ![Closed Issues](documentation/agile/closed-issues.png) |
+| [![GitHub issues](https://img.shields.io/github/issues-search/colmwoods/PwdShell?query=is%3Aissue%20is%3Aopen%20-label%3Abug&label=Open%20Issues&color=yellow)](https://www.github.com/colmwoods/PwdShell/issues?q=is%3Aissue%20is%3Aopen%20-label%3Abug) | ![Open Issues](docs/img/open-issue.jpg) |
+| [![GitHub closed issues](https://img.shields.io/github/issues-search/colmwoods/PwdShell?query=is%3Aissue%20is%3Aclosed%20-label%3Abug&label=Closed%20Issues&color=green)](https://www.github.com/colmwoods/PwdShell/issues?q=is%3Aissue%20is%3Aclosed%20-label%3Abug) | ![Closed Issues](docs/img/closed-issue.jpg) |
+
+---
 
 ### MoSCoW Prioritization
-- **Must Have**: required to pass (max ~60% of stories).  
-- **Should Have**: adds significant value (~20%).  
-- **Could Have**: nice to include (~20%).  
-- **Won’t Have**: deferred for future.  
+
+I decomposed EPICs into User Stories and applied **MoSCoW prioritization** using labels in GitHub Issues:  
+
+- **Must Have**: guaranteed to be delivered – required to pass the project (*max ~60% of stories*).  
+- **Should Have**: adds significant value, but not vital (*~20% of stories*).  
+- **Could Have**: has small impact if left out (*~20% of stories*).  
+- **Won't Have**: not a priority for this iteration – future features.  
+
 
 
 ---
