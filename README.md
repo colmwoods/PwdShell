@@ -8,6 +8,10 @@ Developer: Colm Woods ([colmwoods](https://www.github.com/colmwoods))
 [![badge](https://img.shields.io/badge/deployment-Heroku-purple)](https://pwdshell-6bf799458b95.herokuapp.com)
 
 ---
+![Mockups](docs/img/mockup.jpg)  
+
+Source: [Techsini Multi Device Website Mockup Generator](https://techsini.com/multi-mockup/?url=https://pwdshell-6bf799458b95.herokuapp.com/)  
+
 
 ## Project Introduction and Rationale
 
