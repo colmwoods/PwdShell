@@ -177,6 +177,74 @@ It shows the cycle of setting/verifying a master password and the main menu acti
 
 ---
 
+### Imports
+
+PwdShell uses the following Python libraries:
+
+- `getpass` – securely handle hidden password input.  
+- `os` – check environment variables and clear the terminal.  
+- `json` – store and retrieve account data from `vault.json`.  
+- `cryptography.fernet.Fernet` – generate and manage an encryption key.  
+- `hashlib` – hash the master password using SHA-256.  
+
+---
+
+### Functions
+
+The main functions in **PwdShell** are:
+
+- `clear()`  
+  Clears the terminal screen for readability (cross-platform).  
+
+- `set_master_password(user_id="default_user")`  
+  Prompts the user to set a master password.  
+  - On **Heroku**, the password is stored in memory (`user_sessions`) for the session.  
+  - On **local**, it hashes the password with SHA-256 and saves it to `master.key`.  
+
+- `master_password(user_id="default_user")`  
+  Verifies the master password entered by the user against either session memory (Heroku) or the stored hash (local).  
+
+- `load_key()`  
+  Loads an encryption key from `key.key`. If the file doesn’t exist, a new key is generated and saved.  
+
+- `load_vault()`  
+  Loads the password vault from `vault.json`. If the file doesn’t exist or is invalid, it returns an empty dictionary.  
+
+- `save_vault(vault)`  
+  Saves the current state of the vault back into `vault.json`.  
+
+- `add_new_password(vault)`  
+  Adds a new account (account name, username, password) to the vault.  
+
+- `get_password(vault)`  
+  Retrieves and prints the username and password for a given account.  
+
+- `view_accounts(vault)`  
+  Lists all stored account names in the vault.  
+
+- `delete_account(vault)`  
+  Deletes an account from the vault and updates the file.  
+
+- `main()`  
+  Runs the application. Handles master password setup/verification, loads the vault, and provides the main menu loop.  
+
+---
+
+### Program Flow
+
+1. User sets or verifies the master password.  
+2. The vault is loaded from `vault.json`.  
+3. The main menu is displayed.  
+4. User can choose to:  
+   - Add a new password  
+   - Get a password  
+   - View all accounts  
+   - Delete an account  
+   - Exit the program  
+5. Vault changes are saved automatically.  
+
+---
+
 ## Agile Development Process
 
 - Managed with [GitHub Projects](https://www.github.com/colmwoods/PwdShell/projects).  
