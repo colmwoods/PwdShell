@@ -278,6 +278,22 @@ The main functions in **PwdShell** are:
 - Used Issues for user stories, bugs, and tasks.  
 - Applied **MoSCoW prioritization** for feature importance.  
 
+### GitHub Projects
+![Kanban Board](documentation/agile/kanban.png)
+
+### GitHub Issues
+| Type | Screenshot |
+| --- | --- |
+| Open Issues | ![Open Issues](documentation/agile/open-issues.png) |
+| Closed Issues | ![Closed Issues](documentation/agile/closed-issues.png) |
+
+### MoSCoW Prioritization
+- **Must Have**: required to pass (max ~60% of stories).  
+- **Should Have**: adds significant value (~20%).  
+- **Could Have**: nice to include (~20%).  
+- **Won’t Have**: deferred for future.  
+
+
 ---
 
 ## Testing
