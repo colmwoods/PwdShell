@@ -282,7 +282,25 @@ The main functions in **PwdShell** are:
 
 ## Testing
 
-> For all testing details, please see [TESTING.md](TESTING.md).  
+Manual testing was carried out to ensure the reliability of **PwdShell**.  
+Key areas tested included:  
+
+- **Master Password Handling**  
+  - Verified correct setup and storage of master password (local hash and Heroku session).  
+  - Tested incorrect, empty, and mismatched inputs.  
+
+- **Vault Operations (CRUD)**  
+  - Adding accounts: prevented duplicates, validated empty input.  
+  - Retrieving accounts: checked correct details returned, handled missing accounts gracefully.  
+  - Viewing accounts: confirmed correct list output when vault had entries and when empty.  
+  - Deleting accounts: verified successful deletion and appropriate error message if not found.  
+
+- **General Validation**  
+  - Menu input tested with valid/invalid choices.  
+  - Confirmed program exited cleanly with `Exit` option or `CTRL+C`.  
+
+Full details of all test cases and results can be found in [TESTING.md](TESTING.md).
+
 
 ---
 
