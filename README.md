@@ -117,11 +117,11 @@ Not applicable (terminal app).
 > You cannot see the **password** on the screen as i'm using the getpass method whichs hides the password from being seen
 | Feature | Notes | Screenshot |
 | --- | --- | --- |
-| Master Password | Vault is protected with a SHA256 hash of the master password. |  |
-| Add Account | Add username + password securely to JSON vault. | <!-- screenshot --> |
-| Retrieve Account | View stored login details by account name. | <!-- screenshot --> |
-| View Accounts | List all stored accounts. | <!-- screenshot --> |
-| Delete Account | Remove account from the vault. | <!-- screenshot --> |
+| Master Password | Vault is protected with a SHA256 hash of the master password. |![Master Password](docs/img/features/master-password.jpg)    |
+| Add Account | Add username + password securely to JSON vault. | ![Add Account](docs/img/features/add-account.jpg) |
+| Get Account | View stored login details by account name. | ![Get Account](docs/img/features/get-password.jpg) |
+| View Accounts | List all stored accounts. | ![View Accounts](docs/img/features/view-accounts.jpg) |
+| Delete Account | Remove account from the vault. | ![Delete Account](docs/img/features/delete-account.jpg) |
 
 ### Future Features
 - Password generator for creating secure passwords.  
