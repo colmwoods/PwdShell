@@ -113,9 +113,11 @@ Not applicable (terminal app).
 
 ### Existing Features
 
+> [!NOTE]
+> You cannot see the **password** on the screen as i'm using the getpass method whichs hides the password from being seen
 | Feature | Notes | Screenshot |
 | --- | --- | --- |
-| Master Password | Vault is protected with a SHA256 hash of the master password. | <!-- screenshot --> |
+| Master Password | Vault is protected with a SHA256 hash of the master password. |  |
 | Add Account | Add username + password securely to JSON vault. | <!-- screenshot --> |
 | Retrieve Account | View stored login details by account name. | <!-- screenshot --> |
 | View Accounts | List all stored accounts. | <!-- screenshot --> |
@@ -165,7 +167,10 @@ Vault data is stored in a JSON file (`vault.json`) with the following structure:
 
 ### Flowchart
 
-<!-- Add flowchart image of PwdShell logic here -->
+To follow best practice, a flowchart was created to illustrate the logic of **PwdShell**.  
+It shows the cycle of setting/verifying a master password and the main menu actions.  
+
+![flowchart](docs/img/flowchart.jpg)
 
 ---
 
