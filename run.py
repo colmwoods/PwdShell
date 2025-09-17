@@ -50,25 +50,41 @@ def set_master_password(user_id="default_user"):
                 print("✅ Master password set successfully.")
                 return hashed_password
 
-def master_password():
+def master_password(user_id="default_user"):
     """
     Verify the master password entered by the user.
     """
-    if not os.path.exists("master.key"):
-        set_master_password()
+    running_on_heroku = "DYNO" in os.environ
 
-    with open("master.key", "r") as f:
-        stored_hash = f.read().strip()
+    if running_on_heroku:
+        # Heroku session-only check
+        if user_id not in user_sessions:
+            set_master_password(user_id)
 
-    master = getpass.getpass("Enter master password: ").strip()
-    hashed = hashlib.sha256(master.encode()).hexdigest()
+        attempt = getpass.getpass("Enter master password: ").strip()
+        if attempt == user_sessions[user_id]:
+            print("🔓 Access granted (Heroku session).")
+            return True
+        else:
+            print("❌ Incorrect master password. Exiting.")
+            return False
 
-    if hashed == stored_hash:
-        print("🔓 Access granted.")
-        return True
     else:
-        print("❌ Incorrect master password. Exiting.")
-        return False
+        if not os.path.exists("master.key"):
+            set_master_password(user_id)
+
+        with open("master.key", "r") as f:
+            stored_hash = f.read().strip()
+
+        attempt = getpass.getpass("Enter master password: ").strip()
+        attempt_hash = hashlib.sha256(attempt.encode()).hexdigest()
+
+        if attempt_hash == stored_hash:
+            print("🔓 Access granted (local).")
+            return True
+        else:
+            print("❌ Incorrect master password. Exiting.")
+            return False
     
 def load_key():
     """
@@ -165,7 +181,9 @@ def main():
     """
     Main function to run the password manager.
     """
-    if not master_password():
+    set_master_password()  # ensures one exists
+    if not verify_master_password():
+        print("❌ Access denied.")
         return
     
     vault = load_vault()
