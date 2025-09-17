@@ -109,6 +109,7 @@ Not applicable (terminal app).
 
 > [!NOTE]
 > You cannot see the **password** on the screen as i'm using the getpass method whichs hides the password from being seen
+
 | Feature | Notes | Screenshot |
 | --- | --- | --- |
 | Master Password | Vault is protected with a SHA256 hash of the master password. |![Master Password](docs/img/features/master-password.jpg)    |
