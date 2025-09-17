@@ -139,8 +139,8 @@ def add_new_password(vault):
     Add a new password to the vault.
     """
     account = input(
-    "Enter the account you will be adding, e.g. google, twitter etc: "
-).strip().lower()
+        "Enter the account you will be adding, e.g. google, twitter etc: "
+        ).strip().lower()
 
     username = input(
         f"Enter the username for your {account} account: ").strip()
@@ -161,7 +161,7 @@ def get_password(vault):
     """
     account = input(
         "Enter the account you want to retrieve the password for: "
-).strip().lower()
+        ).strip().lower()
     if account in vault:
         print(f"Username for your {account}: {vault[account]['username']}")
         print(f"Password for your {account}: {vault[account]['password']}")
