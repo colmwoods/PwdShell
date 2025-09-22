@@ -48,7 +48,7 @@ Desktop performance and accessibility scored higher.
 
 | Mobile | Desktop |
 | --- | --- |
-| ![screenshot](documentation/lighthouse/mobile-terminal.png) | ![screenshot](documentation/lighthouse/desktop-terminal.png) |
+| ![screenshot](docs/img/lighthouse/mobile.jpg) | ![screenshot](docs/img/lighthouse/desktop.jpg) |
 
 ---
 
