@@ -219,7 +219,6 @@ def main():
 
     while True:
         # Menu Options
-        clear()
         print("\nOptions:")
         print("1. Add New Password")
         print("2. Get Password")
