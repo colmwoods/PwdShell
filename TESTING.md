@@ -63,7 +63,7 @@ Defensive programming was tested extensively, covering both **happy paths** and 
 | Add Account | Should reject duplicates. | Added "google" twice. | First saved, second rejected. | ![screenshot](docs/img/defensive-programming/add-account.jpg) |
 | Get Password | Should return correct credentials if they exist. | Retrieved "twitter" account. | Correct details displayed. | ![screenshot](docs/img/defensive-programming/get-password.jpg) |
 | Delete Account | Should handle missing accounts. | Deleted "twitter" twice. | First deleted, second rejected. | ![screenshot](docs/img/defensive-programming/delete-account.jpg) |
-| Empty Input | Should not accept blank values. | Tried adding account with blank username. | Input rejected with error. | ![screenshot](documentation/defensive/empty-input.png) |
+| Empty Input | Should not accept blank values. | Tried adding account with blank username. | Input rejected with error. | ![screenshot](docs/img/defensive-programming/empty-input.jpg) |
 | Exit Handling | Program should close safely. | Used Exit menu and pressed CTRL+C. | Exit menu closed cleanly, CTRL+C showed handled error. | ![screenshot](docs/img/defensive-programming/exit-handling.jpg) |
 
 ---
@@ -74,13 +74,13 @@ All user stories from the README were manually tested.
 
 | Target | Expectation | Outcome | Screenshot |
 | --- | --- | --- | --- |
-| As a user | I want to set and confirm a master password | so that my vault is secure. | ![screenshot](documentation/features/master-password.png) |
-| As a user | I want to log in with my master password | so that only I can access my vault. | ![screenshot](documentation/features/login.png) |
-| As a user | I want to add new accounts | so that I can securely save my credentials. | ![screenshot](documentation/features/add.png) |
-| As a user | I want to view stored accounts | so that I can check which ones are saved. | ![screenshot](documentation/features/view.png) |
-| As a user | I want to retrieve a password | so that I can log into accounts when needed. | ![screenshot](documentation/features/get.png) |
-| As a user | I want to delete accounts | so that I can keep the vault clean. | ![screenshot](documentation/features/delete.png) |
-| As a user | I want to exit safely at any time | so that I don’t corrupt the vault. | ![screenshot](documentation/features/exit.png) |
+| As a user | I want to set and confirm a master password | so that my vault is secure. | ![screenshot](docs/img/user-story/set-master-password.jpg) |
+| As a user | I want to log in with my master password | so that only I can access my vault. | ![screenshot](docs/img/user-story/log-in-master-password.jpg) |
+| As a user | I want to add new accounts | so that I can securely save my credentials. | ![screenshot](docs/img/user-story/add-account.jpg) |
+| As a user | I want to view stored accounts | so that I can check which ones are saved. | ![screenshot](docs/img/user-story/view-accounts.jpg) |
+| As a user | I want to retrieve a password | so that I can log into accounts when needed. | ![screenshot](docs/img/user-story/get-password.jpg) |
+| As a user | I want to delete accounts | so that I can keep the vault clean. | ![screenshot](docs/img/user-story/delete-account.jpg) |
+| As a user | I want to exit safely at any time | so that I don’t corrupt the vault. | ![screenshot](docs/img/user-story/exit-safely.jpg) |
 
 ---
 
@@ -98,7 +98,9 @@ All user stories from the README were manually tested.
   - Added `.python-version` file to pin Python to 3.12.  
   - Cleaned up `requirements.txt` to include only actual dependencies (`cryptography`, `colorama`).  
   - After these fixes, the build completed and the app deployed successfully.  
-
+- **Fixed Input Validation Bug**:  
+  - Previously, blank values for account name, username, or password were still accepted.  
+  - Added if, else defensive checks to reject empty inputs inside the add_new_password function, ensuring all fields must be filled before saving.  
 
 ![screenshot](documentation/bugs/gh-issues-closed.png)
 
