@@ -34,9 +34,9 @@ However, I still tested the deployed version on multiple screen sizes using **Ch
 
 I tested the deployed site on multiple browsers.  
 
-| Chrome | Firefox | Safari | Edge | Notes |
-| --- | --- | --- | --- | --- |
-| ![screenshot](documentation/browsers/chrome-terminal.png) | ![screenshot](documentation/browsers/firefox-terminal.png) | ![screenshot](documentation/browsers/safari-terminal.png) | ![screenshot](documentation/browsers/edge-terminal.png) | Chrome: works fully. Firefox: emojis cut-off. Safari: terminal input unreliable. Edge: works as expected. |
+| Chrome | Firefox | Safari | Edge | Opera | Brave | Notes |
+| --- | --- | --- | --- | --- | --- | --- |
+| ![screenshot](docs/img/browser/chrome.jpg) | ![screenshot](docs/img/browser/firefox.jpg) | ![screenshot](docs/img/browser/safari.jpg) | ![screenshot](docs/img/browser/edge.jpg) | ![screenshot](docs/img/browser/opera.jpg) | ![screenshot](docs/img/browser/brave.jpg) Chrome: works fully. Firefox: emojis cut-off. Safari: terminal input unreliable. Edge: works as expected. Opera: works as expected. Brave: works fully |
 
 ---
 
