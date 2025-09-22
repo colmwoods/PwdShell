@@ -26,7 +26,7 @@ However, I still tested the deployed version on multiple screen sizes using **Ch
 
 | Mobile | Tablet | Desktop | Notes |
 | --- | --- | --- | --- |
-| ![screenshot](documentation/responsiveness/mobile-terminal.png) | ![screenshot](documentation/responsiveness/tablet-terminal.png) | ![screenshot](documentation/responsiveness/desktop-terminal.png) | Mobile: `overflow-x` occurs. iPhone does not accept input. Android accepts input but can stop randomly. |
+| ![screenshot](docs/img/responsiveness/mobile.jpg) | ![screenshot](docs/img/responsiveness/tablet.jpg) | ![screenshot](docs/img/responsiveness/desktop.jpg) | Mobile: `overflow-x` occurs. iPhone does not accept input. Android accepts input but can stop randomly. |
 
 ---
 
