@@ -118,11 +118,11 @@ Currently, no functional bugs remain open. Any remaining issues are environmenta
 
 | Issue | Explanation | Screenshot |
 | --- | --- | --- |
-| `clear()` does not fully clear when scrolling up. | Limitation of terminal height in Code Institute IDE. | ![screenshot](documentation/issues/clear-scrolling.png) |
-| Colors fainter on Heroku. | Due to Code Institute’s terminal emulator. | ![screenshot](documentation/issues/colorama.png) |
-| Emojis cut off in Firefox. | Known rendering issue with terminal fonts. | ![screenshot](documentation/issues/emojis.png) |
-| Input broken in Safari/iOS. | Code Institute terminal not fully supported. | ![screenshot](documentation/issues/safari.png) |
-| CTRL+C exits with error message. | Default Python behavior, partially handled with exception catch. | ![screenshot](documentation/issues/ctrl-c.png) |
+| `clear()` issue when using (view all accounts). | Clears terminal straight away, user cant then see his password. | ![screenshot](docs/img/known-issues/clear-function-issue.jpg) |
+| Colors fainter on Heroku. | Due to Code Institute’s terminal emulator. | ![screenshot](docs/img/known-issues/color-heroku.jpg) |
+| Emojis cut off in Firefox. | Known rendering issue with terminal fonts. | ![screenshot](docs/img/known-issues/firefox-issue.jpg) |
+| Input broken in Safari/iOS. | Code Institute terminal not fully supported. | ![screenshot](docs/img/known-issues/safari-issue.jpg) |
+| CTRL+C exits with error message. | Default Python behavior, partially handled with exception catch. | ![screenshot](docs/img/known-issues/ctrl-c.jpg) |
 
 > [!IMPORTANT]  
 > No remaining functional bugs are known. Environment-specific issues have been documented.  
