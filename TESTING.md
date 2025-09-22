@@ -15,7 +15,7 @@ After making fixes (line wrapping, removing excess blank lines, correcting inden
 
 | Directory | File | URL | Screenshot | Notes |
 | --- | --- | --- | --- | --- |
-|  | [run.py](https://github.com/colmwoods/PwdShell/blob/main/run.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/colmwoods/PwdShell/main/run.py) | ![screenshot](documentation/validation/py--run.png) | All previous errors (E302, E501, W293) resolved. |
+|  | [run.py](https://github.com/colmwoods/PwdShell/blob/main/run.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/colmwoods/PwdShell/main/run.py) | ![screenshot](docs/img/pep8-testing.jpg) | All previous errors (E302, E501, W293) resolved. |
 
 ---
 
