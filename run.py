@@ -140,19 +140,31 @@ def add_new_password(vault):
     """
     account = input(
         "Enter the account you will be adding, e.g. google, twitter etc: "
-        ).strip().lower()
+    ).strip().lower()
 
-    username = input(
-        f"Enter the username for your {account} account: ").strip()
-    password = getpass.getpass(
-        f"Enter the password for your {account} account: ").strip()
+    if not account:
+        print("❌ Account name cannot be blank.")
+        return
 
     if account in vault:
         print(f"❌ {account} already exists.")
+        return
 
-    else:
-        vault[account] = {"username": username, "password": password}
-        print(f"✅ {account} added successfully.")
+    username = input(
+        f"Enter the username for your {account} account: "
+    ).strip()
+
+    password = getpass.getpass(
+        f"Enter the password for your {account} account: "
+    ).strip()
+
+    if not username or not password:
+        print("❌ Username and password cannot be blank.")
+        return
+
+    vault[account] = {"username": username, "password": password}
+    print(f"✅ {account} added successfully.")
+
 
 
 def get_password(vault):
