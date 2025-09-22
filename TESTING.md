@@ -102,7 +102,7 @@ All user stories from the README were manually tested.
   - Previously, blank values for account name, username, or password were still accepted.  
   - Added if, else defensive checks to reject empty inputs inside the add_new_password function, ensuring all fields must be filled before saving.  
 
-![screenshot](documentation/bugs/gh-issues-closed.png)
+![screenshot](docs/img/fixed-bugs.jpg)
 
 ---
 
@@ -110,9 +110,7 @@ All user stories from the README were manually tested.
 
 [![GitHub issue custom search](https://img.shields.io/github/issues-search/colmwoods/PwdShell?query=is%3Aissue%2Bis%3Aopen%2Blabel%3Abug&label=Unfixed%20Bugs&color=red)](https://www.github.com/colmwoods/PwdShell/issues?q=is%3Aissue+is%3Aopen+label%3Abug)
 
-Currently, no functional bugs remain open. Any remaining issues are environmental (see below).  
-
-![screenshot](documentation/bugs/gh-issues-open.png)
+Currently, no functional bugs remain open. Any remaining issues are environmental (see below).
 
 ---
 
