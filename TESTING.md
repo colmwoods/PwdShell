@@ -36,7 +36,7 @@ I tested the deployed site on multiple browsers.
 
 | Chrome | Firefox | Safari | Edge | Opera | Brave | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| ![screenshot](docs/img/browser/chrome.jpg) | ![screenshot](docs/img/browser/firefox.jpg) | ![screenshot](docs/img/browser/safari.jpg) | ![screenshot](docs/img/browser/edge.jpg) | ![screenshot](docs/img/browser/opera.jpg) | ![screenshot](docs/img/browser/brave.jpg) Chrome: works fully. Firefox: emojis cut-off. Safari: terminal input unreliable. Edge: works as expected. Opera: works as expected. Brave: works fully |
+| ![screenshot](docs/img/browser/chrome.jpg) | ![screenshot](docs/img/browser/firefox.jpg) | ![screenshot](docs/img/browser/safari.jpg) | ![screenshot](docs/img/browser/edge.jpg) | ![screenshot](docs/img/browser/opera.jpg) | ![screenshot](docs/img/browser/brave.jpg) | Chrome: works fully. Firefox: emojis cut-off. Safari: terminal input unreliable. Edge: works as expected. Opera: works as expected. Brave: works fully |
 
 ---
 
