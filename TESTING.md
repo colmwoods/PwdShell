@@ -58,13 +58,13 @@ Defensive programming was tested extensively, covering both **happy paths** and 
 
 | Feature | Expectation | Test | Result | Screenshot |
 | --- | --- | --- | --- | --- |
-| Master Password Setup | Should not accept empty or mismatched passwords. | Pressed Enter with no input, and entered two different passwords. | Both rejected with clear error messages. | ![screenshot](documentation/defensive/master-password.png) |
-| Login Attempts | Only correct master password should unlock. | Tried wrong password 3 times, then correct one. | Wrong attempts rejected, correct one accepted. | ![screenshot](documentation/defensive/login.png) |
-| Add Account | Should reject duplicates. | Added "google" twice. | First saved, second rejected. | ![screenshot](documentation/defensive/add-duplicate.png) |
-| Get Password | Should return correct credentials if they exist. | Retrieved "twitter" account. | Correct details displayed. | ![screenshot](documentation/defensive/get-password.png) |
-| Delete Account | Should handle missing accounts. | Deleted "twitter" twice. | First deleted, second rejected. | ![screenshot](documentation/defensive/delete.png) |
+| Master Password Setup | Should not accept empty or mismatched passwords. | Pressed Enter with no input, and entered two different passwords. | Both rejected with clear error messages. | ![screenshot](docs/img/defensive-programming/master-password-setup.jpg) |
+| Login Attempts | Only correct master password should unlock. | Tried wrong password 3 times, then correct one. | Wrong attempts rejected, correct one accepted. | ![screenshot](docs/img/defensive-programming/login-attempts.jpg) |
+| Add Account | Should reject duplicates. | Added "google" twice. | First saved, second rejected. | ![screenshot](docs/img/defensive-programming/add-account.jpg) |
+| Get Password | Should return correct credentials if they exist. | Retrieved "twitter" account. | Correct details displayed. | ![screenshot](docs/img/defensive-programming/get-password.jpg) |
+| Delete Account | Should handle missing accounts. | Deleted "twitter" twice. | First deleted, second rejected. | ![screenshot](docs/img/defensive-programming/delete-account.jpg) |
 | Empty Input | Should not accept blank values. | Tried adding account with blank username. | Input rejected with error. | ![screenshot](documentation/defensive/empty-input.png) |
-| Exit Handling | Program should close safely. | Used Exit menu and pressed CTRL+C. | Exit menu closed cleanly, CTRL+C showed handled error. | ![screenshot](documentation/defensive/exit.png) |
+| Exit Handling | Program should close safely. | Used Exit menu and pressed CTRL+C. | Exit menu closed cleanly, CTRL+C showed handled error. | ![screenshot](docs/img/defensive-programming/exit-handling.jpg) |
 
 ---
 
