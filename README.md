@@ -32,6 +32,9 @@ A key design choice was to handle master password storage differently depending 
 - This allows users to manage and retain their passwords securely between sessions.  
 
 > Apart from this difference in password persistence, both versions function identically.
+
+---
+
 The project is designed for users who:  
 - Want a **lightweight password manager** that doesn’t require browser plugins.  
 - Prefer to keep their data **local** instead of relying on third-party services.  
