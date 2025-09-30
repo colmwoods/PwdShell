@@ -3,7 +3,13 @@ import os
 import json
 from cryptography.fernet import Fernet
 import hashlib
+from colorama import Fore, Style, init
 
+init(autoreset=True)
+
+# Status icons
+SUCCESS = Fore.GREEN + Style.RESET_ALL
+ERROR = Fore.RED  + Style.RESET_ALL
 
 def clear():
     """
@@ -45,12 +51,12 @@ def set_master_password(user_id="default_user"):
                 "Confirm your master password: ")
 
             if master_password != confirm_password:
-                print("❌ Passwords do not match. Please try again.")
+                print(ERROR + "Passwords do not match. Please try again.")
             elif not master_password.strip():
-                print("❌ Master password cannot be empty. Please try again.")
+                print(ERROR + "Master password cannot be empty. Please try again.")
             else:
                 user_sessions[user_id] = master_password
-                print("✅ Master password set successfully.")
+                print(SUCCESS + "Master password set successfully.")
                 return master_password
     else:
         if os.path.exists("master.key"):
@@ -63,17 +69,17 @@ def set_master_password(user_id="default_user"):
                 "Confirm your master password: ")
 
             if master_password != confirm_password:
-                print("❌ Passwords do not match. Please try again.")
+                print(ERROR + "Passwords do not match. Please try again.")
 
             elif not master_password.strip():
-                print("❌ Master password cannot be empty. Please try again.")
+                print(ERROR + "Master password cannot be empty. Please try again.")
 
             else:
                 hashed_password = hashlib.sha256(
                     master_password.encode()).hexdigest()
                 with open("master.key", "w") as file:
                     file.write(hashed_password)
-                print("✅ Master password set successfully.")
+                print(SUCCESS + "Master password set successfully.")
                 return hashed_password
 
 
@@ -93,7 +99,7 @@ def master_password(user_id="default_user"):
             print("🔓 Access granted.")
             return True
         else:
-            print("❌ Incorrect master password. Exiting.")
+            print(ERROR + "Incorrect master password. Exiting.")
             return False
 
     else:
@@ -110,7 +116,7 @@ def master_password(user_id="default_user"):
             print("🔓 Access granted.")
             return True
         else:
-            print("❌ Incorrect master password. Exiting.")
+            print(ERROR + "Incorrect master password. Exiting.")
             return False
 
 
