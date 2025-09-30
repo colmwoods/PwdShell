@@ -18,26 +18,35 @@ def clear():
     """
     print("\033c")
 
-user_sessions = {}
+class PwdShell:
+    """ 
+    Class to manage user sessions for Heroku deployment.
+    """
+    user_sessions = {}
+
 
 def startup_message():
     """
     Display the startup message.
     """
-    if "DYNO" not in os.environ:  # Not running on Heroku
-        return
-    print("🔐 Welcome to PwdShell - Your Secure Password Manager 🔐")
-    print("---------------------------------------------------------")
-    print("⚠️  Important Notice (Deployed Version)")
-    print("This is a demo environment. Data is NOT saved permanently.")
-    print()
-    print("• You must set a master password each time you visit.")
-    print("• Passwords and vault data are cleared when the page is closed or refreshed.")
-    print("• No 'master.key' or 'vault.json' file is stored in this deployment.")
-    print()
-    print("👉 Want to use PwdShell locally with full features?")
-    print("   Clone the project here: https://github.com/colmwoods/PwdShell")
-    print("---------------------------------------------------------")
+    if "DYNO" in os.environ:  # Not running on Heroku
+        print("🔐 Welcome to PwdShell - Your Secure Password Manager 🔐")
+        print("---------------------------------------------------------")
+        print("⚠️  Important Notice (Deployed Version)")
+        print("This is a demo environment. Data is NOT saved permanently.")
+        print()
+        print("• You must set a master password each time you visit.")
+        print("• Passwords and vault data are cleared when the page is closed or refreshed.")
+        print("• No 'master.key' or 'vault.json' file is stored in this deployment.")
+        print()
+        print("👉 Want to use PwdShell locally with full features?")
+        print("   Clone the project here: https://github.com/colmwoods/PwdShell")
+        print("---------------------------------------------------------")
+    else:
+        print("🔐 Welcome to PwdShell - Your Secure Password Manager 🔐")
+        print("---------------------------------------------------------")
+        print("⚠️  Important Notice (Local Version)")
+        print("---------------------------------------------------------")
 
 
 def set_master_password(user_id="default_user"):
@@ -46,8 +55,8 @@ def set_master_password(user_id="default_user"):
     """
     running_on_heroku = "DYNO" in os.environ
     if running_on_heroku:
-        if user_id in user_sessions:
-            return user_sessions[user_id]
+        if user_id in PwdShell.user_sessions:
+            return PwdShell.user_sessions[user_id]
         while True:
             master_password = getpass.getpass("Set your master password: ")
             confirm_password = getpass.getpass(
@@ -58,7 +67,7 @@ def set_master_password(user_id="default_user"):
             elif not master_password.strip():
                 print(ERROR + "Master password cannot be empty. Please try again." + RESET)
             else:
-                user_sessions[user_id] = master_password
+                PwdShell.user_sessions[user_id] = master_password
                 print(SUCCESS + "Master password set successfully." + RESET)
                 return master_password
     else:
@@ -94,11 +103,11 @@ def master_password(user_id="default_user"):
 
     if running_on_heroku:
         # Heroku session-only check
-        if user_id not in user_sessions:
+        if user_id not in PwdShell.user_sessions:
             set_master_password(user_id)
 
         attempt = getpass.getpass("Enter master password: ").strip()
-        if attempt == user_sessions[user_id]:
+        if attempt == PwdShell.user_sessions[user_id]:
             print("🔓 Access granted.")
             return True
         else:
