@@ -9,7 +9,7 @@ def clear():
     """
     Function to clear terminal through the game.
     """
-    os.system("cls" if os.name == "nt" else "clear")
+    print("\033c")
 
 
 user_sessions = {}
@@ -141,6 +141,7 @@ def add_new_password(vault):
     account = input(
         "Enter the account you will be adding, e.g. google, twitter etc: "
     ).strip().lower()
+    clear()
 
     if not account:
         print("❌ Account name cannot be blank.")
@@ -153,6 +154,7 @@ def add_new_password(vault):
     username = input(
         f"Enter the username for your {account} account: "
     ).strip()
+    clear()
 
     password = getpass.getpass(
         f"Enter the password for your {account} account: "
@@ -174,6 +176,7 @@ def get_password(vault):
     account = input(
         "Enter the account you want to retrieve the password for: "
         ).strip().lower()
+    clear()
     if account in vault:
         print(f"Username for your {account}: {vault[account]['username']}")
         print(f"Password for your {account}: {vault[account]['password']}")
@@ -198,6 +201,7 @@ def delete_account(vault):
     Delete an account from the vault.
     """
     account = input("Enter the account you want to delete: ").strip().lower()
+    clear()
     if account in vault:
         del vault[account]
         save_vault(vault)
@@ -227,6 +231,7 @@ def main():
         print("5. Exit")
 
         choice = input("Enter your choice (1-5): ").strip()
+        clear()
 
         if choice == '1':
             add_new_password(vault)
@@ -250,6 +255,7 @@ def main():
 
 
 if __name__ == "__main__":
+    clear()
     try:
         main()
     except KeyboardInterrupt:
