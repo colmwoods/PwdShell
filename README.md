@@ -193,8 +193,7 @@ It shows the cycle of setting/verifying a master password and the main menu acti
 ![flowchart](docs/img/flowchart.jpg)
 > Below is the interactive Mermaid flowchart equivalent of the program logic:
 
-```
-mermaid
+``` mermaid
 flowchart TD
     A([Start]) --> B{Master Password Exists?}
     B -- No --> C[Create Master Password]
