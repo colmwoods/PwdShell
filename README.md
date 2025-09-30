@@ -16,8 +16,22 @@ Source: [Techsini Multi Device Website Mockup Generator](https://techsini.com/mu
 ## Project Introduction and Rationale
 
 PwdShell is a **terminal-based password manager**.  
-It allows users to set a **master password** and then store, retrieve, and manage their account credentials securely in a local vault (`vault.json`).  
+It allows users to set a **master password** and then store, retrieve, and manage their account credentials securely in a local vault (`vault.json`).
 
+A key design choice was to handle master password storage differently depending on the environment:
+
+#### 🔹 Heroku Deployment
+- The master password is **session-only**.  
+- It resets each time the dyno restarts or the “Run Program” button is pressed.  
+- This ensures every user, including Code Institute assessors, can set their own password without needing the developer’s.  
+- **No permanent files** (`master.key` or `vault.json`) are written in the deployed version.  
+
+#### 🔹 Local Environment
+- The master password is **persisted** in a `master.key` file, hashed with **SHA-256**.  
+- Vault data is stored in `vault.json` and is available across runs.  
+- This allows users to manage and retain their passwords securely between sessions.  
+
+> Apart from this difference in password persistence, both versions function identically.
 The project is designed for users who:  
 - Want a **lightweight password manager** that doesn’t require browser plugins.  
 - Prefer to keep their data **local** instead of relying on third-party services.  
