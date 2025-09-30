@@ -7,9 +7,10 @@ from colorama import Fore, Style, init
 
 init(autoreset=True)
 
-# Status icons
-SUCCESS = Fore.GREEN + Style.RESET_ALL
-ERROR = Fore.RED  + Style.RESET_ALL
+SUCCESS = Fore.GREEN + Style.BRIGHT
+ERROR = Fore.RED + Style.BRIGHT
+RESET = Style.RESET_ALL
+
 
 def clear():
     """
@@ -53,12 +54,12 @@ def set_master_password(user_id="default_user"):
                 "Confirm your master password: ")
 
             if master_password != confirm_password:
-                print(ERROR + "Passwords do not match. Please try again.")
+                print(ERROR + "Passwords do not match. Please try again." + RESET)
             elif not master_password.strip():
-                print(ERROR + "Master password cannot be empty. Please try again.")
+                print(ERROR + "Master password cannot be empty. Please try again." + RESET)
             else:
                 user_sessions[user_id] = master_password
-                print(SUCCESS + "Master password set successfully.")
+                print(SUCCESS + "Master password set successfully." + RESET)
                 return master_password
     else:
         if os.path.exists("master.key"):
@@ -71,10 +72,10 @@ def set_master_password(user_id="default_user"):
                 "Confirm your master password: ")
 
             if master_password != confirm_password:
-                print(ERROR + "Passwords do not match. Please try again.")
+                print(ERROR + "Passwords do not match. Please try again." + RESET)
 
             elif not master_password.strip():
-                print(ERROR + "Master password cannot be empty. Please try again.")
+                print(ERROR + "Master password cannot be empty. Please try again." + RESET)
 
             else:
                 hashed_password = hashlib.sha256(
@@ -101,7 +102,7 @@ def master_password(user_id="default_user"):
             print("🔓 Access granted.")
             return True
         else:
-            print(ERROR + "Incorrect master password. Exiting.")
+            print(ERROR + "Incorrect master password. Exiting." + RESET)
             return False
 
     else:
@@ -118,7 +119,7 @@ def master_password(user_id="default_user"):
             print("🔓 Access granted.")
             return True
         else:
-            print(ERROR + "Incorrect master password. Exiting.")
+            print(ERROR + "Incorrect master password. Exiting." + RESET)
             return False
 
 
@@ -167,11 +168,11 @@ def add_new_password(vault):
     clear()
 
     if not account:
-        print("❌ Account name cannot be blank.")
+        print(ERROR + "Account name cannot be blank." + RESET)
         return
 
     if account in vault:
-        print(f"❌ {account} already exists.")
+        print(ERROR + f"{account} already exists." + RESET)
         return
 
     username = input(
@@ -184,11 +185,11 @@ def add_new_password(vault):
     ).strip()
 
     if not username or not password:
-        print("❌ Username and password cannot be blank.")
+        print(ERROR + "Username and password cannot be blank." + RESET)
         return
 
     vault[account] = {"username": username, "password": password}
-    print(f"✅ {account} added successfully.")
+    print(SUCCESS+ f"{account} added successfully." + RESET)
 
 
 
@@ -204,7 +205,7 @@ def get_password(vault):
         print(f"Username for your {account}: {vault[account]['username']}")
         print(f"Password for your {account}: {vault[account]['password']}")
     else:
-        print(f"❌ No account found for {account}.")
+        print(ERROR + f"No account found for {account}." + RESET)
 
 
 def view_accounts(vault):
@@ -216,7 +217,7 @@ def view_accounts(vault):
         for account in vault:
             print(f"- {account}")
     else:
-        print("❌ No accounts stored yet.")
+        print(ERROR + "No accounts stored yet." + RESET)
 
 
 def delete_account(vault):
@@ -228,9 +229,9 @@ def delete_account(vault):
     if account in vault:
         del vault[account]
         save_vault(vault)
-        print(f"✅ {account} deleted successfully.")
+        print(SUCCESS + f"{account} deleted successfully." + RESET)
     else:
-        print(f"❌ No account found for {account}.")
+        print(ERROR + f"No account found for {account}." + RESET)
 
 
 def main():
@@ -274,7 +275,7 @@ def main():
             break
 
         else:
-            print(f"❌ User typed {choice} Invalid choice. Please select a valid option.")
+            print(ERROR + f"User typed {choice} Invalid choice. Please select a valid option." + RESET)
 
 
 if __name__ == "__main__":
@@ -283,4 +284,4 @@ if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
-        print("\n❌ Program interrupted by user. Exiting safely...")
+        print(ERROR + "\nProgram interrupted by user. Exiting safely..." + RESET)
