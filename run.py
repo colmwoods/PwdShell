@@ -11,8 +11,14 @@ def clear():
     """
     print("\033c")
 
-
 user_sessions = {}
+
+def startup_message():
+    """
+    Display the startup message.
+    """
+    print("🔐 Welcome to PwdShell - Your Secure Password Manager 🔐")
+    print("-----------------------------------------------------")
 
 
 def set_master_password(user_id="default_user"):
@@ -23,7 +29,6 @@ def set_master_password(user_id="default_user"):
     if running_on_heroku:
         if user_id in user_sessions:
             return user_sessions[user_id]
-
         while True:
             master_password = getpass.getpass("Set your master password: ")
             confirm_password = getpass.getpass(
@@ -256,6 +261,7 @@ def main():
 
 if __name__ == "__main__":
     clear()
+    startup_message()
     try:
         main()
     except KeyboardInterrupt:
