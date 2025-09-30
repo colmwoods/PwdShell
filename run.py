@@ -18,7 +18,17 @@ def startup_message():
     Display the startup message.
     """
     print("🔐 Welcome to PwdShell - Your Secure Password Manager 🔐")
-    print("-----------------------------------------------------")
+    print("---------------------------------------------------------")
+    print("⚠️  Important Notice (Deployed Version)")
+    print("This is a demo environment. Data is NOT saved permanently.")
+    print()
+    print("• You must set a master password each time you visit.")
+    print("• Passwords and vault data are cleared when the page is closed or refreshed.")
+    print("• No 'master.key' or 'vault.json' file is stored in this deployment.")
+    print()
+    print("👉 Want to use PwdShell locally with full features?")
+    print("   Clone the project here: https://github.com/colmwoods/PwdShell")
+    print("---------------------------------------------------------")
 
 
 def set_master_password(user_id="default_user"):
