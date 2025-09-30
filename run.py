@@ -251,7 +251,7 @@ def main():
             break
 
         else:
-            print("❌ Invalid choice. Please select a valid option.")
+            print(f"❌ User typed {choice} Invalid choice. Please select a valid option.")
 
 
 if __name__ == "__main__":
