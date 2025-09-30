@@ -23,6 +23,8 @@ def startup_message():
     """
     Display the startup message.
     """
+    if "DYNO" not in os.environ:  # Not running on Heroku
+        return
     print("🔐 Welcome to PwdShell - Your Secure Password Manager 🔐")
     print("---------------------------------------------------------")
     print("⚠️  Important Notice (Deployed Version)")
