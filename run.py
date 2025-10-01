@@ -42,7 +42,8 @@ def startup_message():
             "is closed or refreshed."
         )
         print(
-            "• No 'master.key' or 'vault.json' file is stored in this deployment."
+            "• No 'master.key' or 'vault.json' file is stored "
+            "in this deployment."
         )
         print("👉 Want to use PwdShell locally with full features?")
         print(
@@ -332,4 +333,9 @@ if __name__ == "__main__":
     try:  # Run Main Program
         main()
     except KeyboardInterrupt:  # Handle Ctrl+C Gracefully
-        print(ERROR + "\nProgram interrupted by user. Exiting safely..." + RESET)
+        print(
+            ERROR
+            + "\nProgram interrupted by user. "
+            "Exiting safely..."
+            + RESET
+        )
