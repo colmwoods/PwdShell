@@ -409,16 +409,6 @@ Deployment steps:
 >
 > Unlike the Heroku version, the local master password is **persistent** and will remain the same until the `master.key` file is deleted or replaced.  
 
-Clone this repo:
-
-```
-bash
-git clone https://www.github.com/colmwoods/PwdShell.git
-cd PwdShell
-pip install -r requirements.txt
-python3 run.py
-```
-
 ---
 
 ### Local vs Deployment
@@ -433,6 +423,25 @@ python3 run.py
 
 Apart from this difference in password handling, both versions function identically.  
 
+---
+
+### Cloning  
+
+You can clone this repository to create a local copy:  
+
+git clone "https://github.com/colmwoods/PwdShell.git"
+
+---
+
+### Forking  
+
+You can fork this repository to make a copy under your own GitHub account, allowing you to freely experiment with changes without affecting the original project.  
+
+1. Go to the GitHub repository: https://github.com/colmwoods/PwdShell  
+2. In the top-right corner, click the **Fork** button.  
+3. A copy of the repository will now exist in your GitHub account.  
+
+---
 
 ## Credits
 
