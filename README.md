@@ -230,7 +230,8 @@ PwdShell uses the following Python libraries:
 - `os` – check environment variables and clear the terminal.  
 - `json` – store and retrieve account data from `vault.json`.  
 - `cryptography.fernet.Fernet` – generate and manage an encryption key.  
-- `hashlib` – hash the master password using SHA-256.  
+- `hashlib` – hash the master password using SHA-256.
+- `colorama.Fore`, `colorama.Style`, `colorama.init` – add colour-coded success/error/reset messages in the terminal  
 
 ---
 
