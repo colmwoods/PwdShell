@@ -22,7 +22,12 @@ After making fixes (line wrapping, removing excess blank lines, correcting inden
 ## Responsiveness
 
 The Python terminal was provided by Code Institute, and is known to have responsiveness issues.  
-However, I still tested the deployed version on multiple screen sizes using **Chrome DevTools** and an **Android phone**.  
+However, I still tested the deployed version on multiple screen sizes using **Chrome DevTools** and an **Android phone**.
+
+### Screen Resolutions Tested
+- **Mobile (425px – 1080px wide)** → Terminal displayed, though some horizontal scrolling (`overflow-x`) was required.  
+- **Tablet (768px – 1080px wide)** → Layout displayed correctly with minimal issues.  
+- **Desktop (1920px X 1080px)** → Fully functional, no responsiveness issues.  
 
 | Mobile | Tablet | Desktop | Notes |
 | --- | --- | --- | --- |
