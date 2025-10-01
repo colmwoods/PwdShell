@@ -150,8 +150,7 @@ Screenshot of the terminal menu structure that users interact with after logging
 
 
 ### Future Features
-- Password generator for creating secure passwords.  
-- Encrypt vault contents (AES/Fernet).  
+- Password generator for creating secure passwords.
 - Export/import vault.  
 - Desktop GUI.  
 - Mobile app.  
