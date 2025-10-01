@@ -142,16 +142,12 @@ Screenshot of the terminal menu structure that users interact with after logging
 
 | Feature | Notes | Screenshot |
 | --- | --- | --- |
-| Master Password | Vault is protected with a SHA256 hash of the master password. |![Master Password](docs/img/features/master-password.jpg)    |
-| Add Account | Add username + password securely to the vault.  
-- **Local**: stored in `vault.json` for persistence.  
-- **Heroku**: stored only in session memory (cleared when restarted). |
-The password input itself is hidden using the `getpass` method for security. | ![Add Account](docs/img/features/add-account.jpg) 
-- Because `clear()` runs after each input, only the confirmation message is visible in the screenshot, not every input step. |
+| Master Password | Vault is protected with a SHA256 hash of the master password. | ![Master Password](docs/img/features/master-password.jpg) |
+| Add Account | Add username + password securely to the vault.<br>**Local**: stored in `vault.json` for persistence.<br>**Heroku**: stored only in session memory (cleared when restarted).<br>The password input itself is hidden using the `getpass` method for security.<br>Because `clear()` runs after each input, only the confirmation message is visible in the screenshot, not every input step. | ![Add Account](docs/img/features/add-account.jpg) |
 | Get Account | View stored login details by account name. | ![Get Account](docs/img/features/get-password.jpg) |
 | View Accounts | List all stored accounts. | ![View Accounts](docs/img/features/view-accounts.jpg) |
-| Delete Account | Remove account from the vault. | ![Delete Account](docs/img/features/delete-account.jpg) 
-- Because `clear()` runs after each input, only the confirmation message is visible in the screenshot, not every input step. |
+| Delete Account | Remove account from the vault.<br>Because `clear()` runs after each input, only the confirmation message is visible in the screenshot, not every input step. | ![Delete Account](docs/img/features/delete-account.jpg) |
+
 
 ### Future Features
 - Password generator for creating secure passwords.  
