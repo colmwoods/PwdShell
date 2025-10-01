@@ -65,6 +65,18 @@ Defensive programming was tested extensively, covering both **happy paths** and 
 | Delete Account | Should handle missing accounts. | Deleted "twitter" twice. | First deleted, second rejected. | ![screenshot](docs/img/defensive-programming/delete-account.jpg) |
 | Empty Input | Should not accept blank values. | Tried adding account with blank username. | Input rejected with error. | ![screenshot](docs/img/defensive-programming/empty-input.jpg) |
 | Exit Handling | Program should close safely. | Used Exit menu and pressed CTRL+C. | Exit menu closed cleanly, CTRL+C showed handled error. | ![screenshot](docs/img/defensive-programming/exit-handling.jpg) |
+| Efficient Prompts | Users should never be asked for data already stored. | Tried creating a master password twice; tried adding duplicate account. | App reused stored master key / rejected duplicate account with error message. |
+
+---
+
+### Error Reporting
+Errors caused by user or data actions are always reported back to the user in a clear, colour-coded way:
+- **Input validation**: Blank or mismatched passwords, invalid menu choices, and duplicate entries are rejected with red error messages.  
+- **Data handling**: Corrupted or missing `vault.json` files trigger an error message and the app safely resets to an empty vault.  
+- **Session handling**: On wrong master password attempts, the user is notified immediately and access is blocked.  
+- **Exit handling**: CTRL+C interrupts display a friendly error message instead of a crash.  
+
+This ensures the user is always informed of what went wrong and how the program has responded.
 
 ---
 
