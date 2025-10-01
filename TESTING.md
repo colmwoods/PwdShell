@@ -118,7 +118,6 @@ Currently, no functional bugs remain open. Any remaining issues are environmenta
 
 | Issue | Explanation | Screenshot |
 | --- | --- | --- |
-| `clear()` issue when using (view all accounts). | Clears terminal straight away, user cant then see his password. | ![screenshot](docs/img/known-issues/clear-function-issue.jpg) |
 | Colors fainter on Heroku. | Due to Code Institute’s terminal emulator. | ![screenshot](docs/img/known-issues/color-heroku.jpg) |
 | Emojis cut off in Firefox. | Known rendering issue with terminal fonts. | ![screenshot](docs/img/known-issues/firefox-issue.jpg) |
 | Input broken in Safari/iOS. | Code Institute terminal not fully supported. | ![screenshot](docs/img/known-issues/safari-issue.jpg) |
