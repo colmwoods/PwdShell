@@ -101,9 +101,12 @@ Screenshot of the terminal menu structure that users interact with after logging
 - Minimal text UI.  
 - Symbols and dividers used for readability.  
 
-**Colours**
-- The terminal app relies on the system terminal’s default colour scheme.  
-- In future, the app could use [Colorama](https://pypi.org/project/colorama/) to add colour-coded menus and alerts.  
+**Colours**  
+- The terminal app primarily uses the system terminal’s default colour scheme.  
+- To improve readability, [Colorama](https://pypi.org/project/colorama/) has been implemented:  
+  - `SUCCESS` messages appear in **bright green**.  
+  - `ERROR` messages appear in **bright red**.  
+  - `RESET` restores the terminal back to its default style.  
 
 **Typography**
 - The app uses the system’s default **monospaced font** (e.g., Consolas, Courier New, or Menlo depending on OS).  
@@ -140,10 +143,15 @@ Screenshot of the terminal menu structure that users interact with after logging
 | Feature | Notes | Screenshot |
 | --- | --- | --- |
 | Master Password | Vault is protected with a SHA256 hash of the master password. |![Master Password](docs/img/features/master-password.jpg)    |
-| Add Account | Add username + password securely to JSON vault. | ![Add Account](docs/img/features/add-account.jpg) |
+| Add Account | Add username + password securely to the vault.  
+- **Local**: stored in `vault.json` for persistence.  
+- **Heroku**: stored only in session memory (cleared when restarted).  
+The password input itself is hidden using the `getpass` method for security. | ![Add Account](docs/img/features/add-account.jpg) 
+- Because `clear()` runs after each input, only the confirmation message is visible in the screenshot, not every input step. |
 | Get Account | View stored login details by account name. | ![Get Account](docs/img/features/get-password.jpg) |
 | View Accounts | List all stored accounts. | ![View Accounts](docs/img/features/view-accounts.jpg) |
-| Delete Account | Remove account from the vault. | ![Delete Account](docs/img/features/delete-account.jpg) |
+| Delete Account | Remove account from the vault. | ![Delete Account](docs/img/features/delete-account.jpg) 
+- Because `clear()` runs after each input, only the confirmation message is visible in the screenshot, not every input step. |
 
 ### Future Features
 - Password generator for creating secure passwords.  
