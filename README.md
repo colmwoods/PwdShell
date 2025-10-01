@@ -493,6 +493,27 @@ You can fork this repository to make a copy under your own GitHub account, allow
 
 ---
 
+### Design Decisions and UX Trade-offs
+PwdShell makes some design choices that differ from accepted user interaction or security best practices:
+
+- **Plaintext Vault Storage (Account Passwords)**  
+  While the master password is hashed securely with SHA-256 (local version), account passwords are stored in `vault.json` as plain text.  
+  This was a deliberate simplification for educational purposes, so the vault contents remain transparent to assessors. In a production app, these would be encrypted.
+
+- **No Password Strength Rules**  
+  Users can set any password they like. This avoids frustrating restrictions and keeps the program simple for classroom/demo use.
+
+- **Terminal Interface**  
+  Unlike most password managers, PwdShell uses a command-line interface. This was chosen to fit deployment requirements (Heroku terminal) and to keep the app lightweight.
+
+- **Session-Only Storage in Deployment**  
+  In the Heroku version, master passwords and vault data are not persisted between sessions. While this is not expected behaviour in real-world apps, it ensures assessors can always start fresh without needing prior credentials.
+
+These trade-offs are intentional, appropriate for the scope of this educational project, and clearly communicated to the user in the README and the program itself.
+
+
+--
+
 ## Credits
 
 ### Content
