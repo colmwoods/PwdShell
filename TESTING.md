@@ -65,12 +65,13 @@ Defensive programming was tested extensively, covering both **happy paths** and 
 | --- | --- | --- | --- | --- |
 | Master Password Setup | Should not accept empty or mismatched passwords. | Pressed Enter with no input, and entered two different passwords. | Both rejected with clear error messages. | ![screenshot](docs/img/defensive-programming/master-password-setup.jpg) |
 | Login Attempts | Only correct master password should unlock. | Tried wrong password 3 times, then correct one. | Wrong attempts rejected, correct one accepted. | ![screenshot](docs/img/defensive-programming/login-attempts.jpg) |
-| Add Account | Should reject duplicates. | Added "google" twice. | First saved, second rejected. | ![screenshot](docs/img/defensive-programming/add-account.jpg) |
-| Get Password | Should return correct credentials if they exist. | Retrieved "twitter" account. | Correct details displayed. | ![screenshot](docs/img/defensive-programming/get-password.jpg) |
-| Delete Account | Should handle missing accounts. | Deleted "twitter" twice. | First deleted, second rejected. | ![screenshot](docs/img/defensive-programming/delete-account.jpg) |
-| Empty Input | Should not accept blank values. | Tried adding account with blank username. | Input rejected with error. | ![screenshot](docs/img/defensive-programming/empty-input.jpg) |
+| Add Account | Should reject duplicates. | Added "google" twice. | First saved, second rejected.<br>Because `clear()` runs after each input, only the confirmation message is visible in the screenshot, not every input step. | ![screenshot](docs/img/defensive-programming/add-account.jpg) |
+| Get Password | Should return correct credentials if they exist. | Retrieved "twitter" account. | Correct details displayed.<br>Due to `clear()`, only the output is visible in the screenshot, not the typed input. | ![screenshot](docs/img/defensive-programming/get-password.jpg) |
+| Delete Account | Should handle missing accounts. | Deleted "twitter" twice. | First deleted, second rejected.<br>`clear()` hides the input prompts, so only the confirmation message is shown in the screenshot. | ![screenshot](docs/img/defensive-programming/delete-account.jpg) |
+| Empty Input | Should not accept blank values. | Tried adding account with blank username. | Input rejected with error.<br>Since `clear()` is called, only the error message is visible in the screenshot. | ![screenshot](docs/img/defensive-programming/empty-input.jpg) |
 | Exit Handling | Program should close safely. | Used Exit menu and pressed CTRL+C. | Exit menu closed cleanly, CTRL+C showed handled error. | ![screenshot](docs/img/defensive-programming/exit-handling.jpg) |
-| Efficient Prompts | Users should never be asked for data already stored. | Tried creating a master password twice; tried adding duplicate account. | App reused stored master key / rejected duplicate account with error message. |
+| Efficient Prompts | Users should never be asked for data already stored. | Tried creating a master password twice. | App reused stored master key. | ![screenshot](docs/img/defensive-programming/efficients-prompts.jpg) |
+
 
 ---
 
@@ -92,12 +93,13 @@ All user stories from the README were manually tested.
 | Target | Expectation | Outcome | Screenshot |
 | --- | --- | --- | --- |
 | As a user | I want to set and confirm a master password | so that my vault is secure. | ![screenshot](docs/img/user-story/set-master-password.jpg) |
-| As a user | I want to log in with my master password | so that only I can access my vault. | ![screenshot](docs/img/user-story/log-in-master-password.jpg) |
-| As a user | I want to add new accounts | so that I can securely save my credentials. | ![screenshot](docs/img/user-story/add-account.jpg) |
-| As a user | I want to view stored accounts | so that I can check which ones are saved. | ![screenshot](docs/img/user-story/view-accounts.jpg) |
+| As a user | I want to verify my master password | so that only I can unlock and access my vault. | ![screenshot](docs/img/user-story/log-in-master-password.jpg) |
+| As a user | I want to add new accounts | so that I can securely save my credentials.<br>Because `clear()` runs after each input, only the confirmation message is visible in the screenshot. | ![screenshot](docs/img/user-story/add-account.jpg) |
+| As a user | I want to view stored accounts | so that I can check which ones are saved.<br>`clear()` ensures only the account list is visible in the screenshot. | ![screenshot](docs/img/user-story/view-accounts.jpg) |
 | As a user | I want to retrieve a password | so that I can log into accounts when needed. | ![screenshot](docs/img/user-story/get-password.jpg) |
-| As a user | I want to delete accounts | so that I can keep the vault clean. | ![screenshot](docs/img/user-story/delete-account.jpg) |
+| As a user | I want to delete accounts | so that I can keep the vault clean.<br>`clear()` removes the input prompts, so only the success/error message is visible in the screenshot. | ![screenshot](docs/img/user-story/delete-account.jpg) |
 | As a user | I want to exit safely at any time | so that I don’t corrupt the vault. | ![screenshot](docs/img/user-story/exit-safely.jpg) |
+
 
 ---
 
