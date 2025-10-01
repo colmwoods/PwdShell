@@ -20,6 +20,8 @@ It allows users to set a **master password** and then store, retrieve, and manag
 
 A key design choice was to handle master password storage differently depending on the environment:
 
+You cannot see the master password or the password you set for an account on the screen as I'm using the getpass method which hides the password from being seen.
+
 #### 🔹 Heroku Deployment
 - The master password is **session-only**.  
 - It resets each time the dyno restarts or the “Run Program” button is pressed.  
