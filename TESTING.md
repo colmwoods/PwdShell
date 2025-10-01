@@ -19,6 +19,26 @@ After making fixes (line wrapping, removing excess blank lines, correcting inden
 
 ---
 
+## Local vs Deployed Testing
+
+PwdShell has two distinct environments, and testing was performed in both:
+
+- **Local Version**  
+  - Master password is hashed with SHA256 and stored in `master.key`.  
+  - Account data is stored persistently in `vault.json`.  
+  - All data is preserved between sessions.  
+
+- **Deployed (Heroku) Version**  
+  - No files are written (`master.key` and `vault.json` are not used).  
+  - All data (master password and accounts) is stored only in session memory.  
+  - Data is cleared whenever the dyno restarts, the page is refreshed, or the tab is closed.  
+
+> [!NOTE]  
+> For this reason, screenshots from the **Heroku deployed version** often only show the final confirmation/error message.  
+> Input prompts are cleared by the `clear()` function and, in deployed mode, data is reset between sessions.
+
+---
+
 ## Responsiveness
 
 The Python terminal was provided by Code Institute, and is known to have responsiveness issues.  
