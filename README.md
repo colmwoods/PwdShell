@@ -267,9 +267,18 @@ The main functions in **PwdShell** are:
   - `ERROR` = red + bright (used for error messages)
   - `RESET` = resets the terminal back to default style
 
-- Class `PwdShell`  
-  - Holds `user_sessions` (dictionary) to manage active sessions on Heroku.
-  - Ensures each user can create and verify their own master password during a session without permanent storage.   
+### Object-Oriented Programming (OOP)
+
+PwdShell implements OOP where appropriate to meet the project’s needs.
+
+- **Class: `PwdShell`**  
+  - Acts as a blueprint for managing user sessions.  
+  - On **Heroku**, stores session-only master password data in memory.  
+  - On **Local**, ensures persistence via `master.key` and `vault.json`.  
+  - This separation of concerns keeps the logic clean and avoids duplication.  
+
+The rest of the program uses standalone functions (e.g., `add_new_password`, `get_password`) for clarity and modularity.  
+By combining OOP (for session handling) with functional programming (for menu-driven operations), the project remains both efficient and easy to maintain. 
   
 - `clear()`  
   Clears the terminal screen for readability (cross-platform).  
