@@ -123,5 +123,11 @@ Currently, no functional bugs remain open. Any remaining issues are environmenta
 | Input broken in Safari/iOS. | Code Institute terminal not fully supported. | ![screenshot](docs/img/known-issues/safari-issue.jpg) |
 | CTRL+C exits with error message. | Default Python behavior, partially handled with exception catch. | ![screenshot](docs/img/known-issues/ctrl-c.jpg) |
 
+> [!NOTE]  
+> Some design choices, such as storing passwords in plaintext JSON and not enforcing password strength rules, are deliberate.  
+> They were made to ensure simplicity, transparency, and easy assessment by Code Institute, while still demonstrating hashing, file handling, and secure input with `getpass`.  
+> These choices are appropriate for the target audience of this educational project and do not represent logic errors.
+
+
 > [!IMPORTANT]  
 > No remaining functional bugs are known. Environment-specific issues have been documented.  

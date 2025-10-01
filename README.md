@@ -342,6 +342,18 @@ The main functions in **PwdShell** are:
 
 ---
 
+### Imperative Programming Principles
+PwdShell demonstrates the main principles of imperative programming:
+- **Sequence**: Instructions execute in a strict order (setup → menu → vault operations).  
+- **Selection**: Conditional logic controls program flow (e.g., validating inputs, handling menu choices).  
+- **Iteration**: Loops ensure repeated actions until valid input or exit.  
+- **State**: Variables and files store and update program state across actions.  
+- **Procedural Abstraction**: Functions and the `PwdShell` class encapsulate logic for clarity and reusability.  
+
+This imperative design makes the program predictable, easy to follow, and aligned with user expectations in a command-line environment.
+
+---
+
 ## Agile Development Process
 
 ### GitHub Projects
