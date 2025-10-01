@@ -257,16 +257,6 @@ pip install -r requirements.txt
 
 ---
 
-### Functions
-
-The main functions in **PwdShell** are:
-
-- Color Variables
-  Defined at the start of the program with the colorama libary for consistent colour-coded messages: 
-  - `SUCCESS` = green + bright (used for success messages)  
-  - `ERROR` = red + bright (used for error messages)
-  - `RESET` = resets the terminal back to default style
-
 ### Object-Oriented Programming (OOP)
 
 PwdShell implements OOP where appropriate to meet the project’s needs.
@@ -279,7 +269,19 @@ PwdShell implements OOP where appropriate to meet the project’s needs.
 
 The rest of the program uses standalone functions (e.g., `add_new_password`, `get_password`) for clarity and modularity.  
 By combining OOP (for session handling) with functional programming (for menu-driven operations), the project remains both efficient and easy to maintain. 
-  
+
+---
+
+### Functions
+
+The main functions in **PwdShell** are:
+
+- Color Variables
+  Defined at the start of the program with the colorama libary for consistent colour-coded messages: 
+  - `SUCCESS` = green + bright (used for success messages)  
+  - `ERROR` = red + bright (used for error messages)
+  - `RESET` = resets the terminal back to default style
+
 - `clear()`  
   Clears the terminal screen for readability (cross-platform).  
   
