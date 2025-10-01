@@ -234,6 +234,23 @@ PwdShell uses the following Python libraries:
 
 ---
 
+### Dependencies
+
+This project uses the following Python libraries:
+
+- **cryptography** – for encryption key generation and management  
+- **colorama** – for colored success/error messages in the terminal  
+
+All other imports (`os`, `json`, `getpass`, `hashlib`) are part of Python’s standard library.  
+
+To install all dependencies at once:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
 ### Functions
 
 The main functions in **PwdShell** are:
@@ -398,6 +415,7 @@ Clone this repo:
 bash
 git clone https://www.github.com/colmwoods/PwdShell.git
 cd PwdShell
+pip install -r requirements.txt
 python3 run.py
 ```
 
