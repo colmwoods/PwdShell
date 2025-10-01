@@ -256,6 +256,12 @@ pip install -r requirements.txt
 
 The main functions in **PwdShell** are:
 
+- Color Variables
+  Defined at the start of the program with the colorama libary for consistent colour-coded messages: 
+  - `SUCCESS` = green + bright (used for success messages)  
+  - `ERROR` = red + bright (used for error messages)
+  - `RESET` = resets the terminal back to default style
+
 - Class `PwdShell`  
   - Holds `user_sessions` (dictionary) to manage active sessions on Heroku.
   - Ensures each user can create and verify their own master password during a session without permanent storage.   
