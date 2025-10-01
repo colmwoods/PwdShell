@@ -38,11 +38,17 @@ def startup_message():
         print()
         print("• You must set a master password each time you visit.")
         print(
-            "• Passwords and vault data are cleared when the page is closed or refreshed.")
-        print("• No 'master.key' or 'vault.json' file is stored in this deployment.")
-        print()
+            "• Passwords and vault data are cleared when the page "
+            "is closed or refreshed."
+        )
+        print(
+            "• No 'master.key' or 'vault.json' file is stored in this deployment."
+        )
         print("👉 Want to use PwdShell locally with full features?")
-        print("   Clone the project here: https://github.com/colmwoods/PwdShell")
+        print(
+            "   Clone the project here: "
+            "https://github.com/colmwoods/PwdShell"
+        )
         print("---------------------------------------------------------")
     else:  # If Running Locally
         print("🔐 Welcome to PwdShell - Your Secure Password Manager 🔐")
@@ -266,7 +272,9 @@ def delete_account(vault):
         save_vault(vault)  # Save Updated Vault
         print(SUCCESS + f"{account} deleted successfully." + RESET)
     else:  # If Account Does Not Exist
-        print(ERROR + f"No account found for {account}." + RESET)
+        print(
+            ERROR + f"No account found for {account}." + RESET
+        )
 
 
 def main():
@@ -311,9 +319,11 @@ def main():
 
         else:  # Invalid Choice
             print(
-                ERROR +
-                f"User typed {choice} Invalid choice. Please select a valid option." +
-                RESET)
+                ERROR
+                + f"User typed {choice} Invalid choice. "
+                "Please select a valid option."
+                + RESET
+            )
 
 
 if __name__ == "__main__":
