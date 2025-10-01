@@ -145,7 +145,7 @@ Screenshot of the terminal menu structure that users interact with after logging
 | Master Password | Vault is protected with a SHA256 hash of the master password. |![Master Password](docs/img/features/master-password.jpg)    |
 | Add Account | Add username + password securely to the vault.  
 - **Local**: stored in `vault.json` for persistence.  
-- **Heroku**: stored only in session memory (cleared when restarted).  
+- **Heroku**: stored only in session memory (cleared when restarted). |
 The password input itself is hidden using the `getpass` method for security. | ![Add Account](docs/img/features/add-account.jpg) 
 - Because `clear()` runs after each input, only the confirmation message is visible in the screenshot, not every input step. |
 | Get Account | View stored login details by account name. | ![Get Account](docs/img/features/get-password.jpg) |
