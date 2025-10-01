@@ -117,6 +117,18 @@ Screenshot of the terminal menu structure that users interact with after logging
 
 ---
 
+### Positive User Experience
+PwdShell was designed to create a positive emotional response for the user:
+- **Clear colour-coded feedback** makes success and errors easy to recognise.  
+- **Welcoming language and emojis** provide reassurance and friendliness in what could otherwise be a dry CLI app.  
+- **Defensive programming** prevents frustration by handling invalid inputs gracefully.  
+- **Trust-building features** like hidden password entry (`getpass`) give users confidence their data is secure.  
+- **Consistent menu-driven flow** ensures users always know where they are and what actions are available.  
+
+Together, these elements make the user feel secure, supported, and confident while interacting with the program.
+
+---
+
 ## Wireframes
 
 “Instead of GUI wireframes, the terminal menu structure acts as the skeleton design. See screenshot below.”
