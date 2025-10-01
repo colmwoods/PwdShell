@@ -29,7 +29,7 @@ def startup_message():
     """
     Display the startup message.
     """
-    if "DYNO" in os.environ:  # Not running on Heroku
+    if "DYNO" in os.environ:  # Check if running on Heroku
         print("🔐 Welcome to PwdShell - Your Secure Password Manager 🔐")
         print("---------------------------------------------------------")
         print("⚠️  Important Notice (Deployed Version)")
@@ -46,6 +46,9 @@ def startup_message():
         print("🔐 Welcome to PwdShell - Your Secure Password Manager 🔐")
         print("---------------------------------------------------------")
         print("⚠️  Important Notice (Local Version)")
+        print()
+        print("Your master password will be saved locally in 'master.key")
+        print("Your passwords will be saved locally in 'vault.json'")
         print("---------------------------------------------------------")
 
 

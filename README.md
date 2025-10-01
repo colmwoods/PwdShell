@@ -238,8 +238,17 @@ PwdShell uses the following Python libraries:
 
 The main functions in **PwdShell** are:
 
+- Class `PwdShell`  
+  - Holds `user_sessions` (dictionary) to manage active sessions on Heroku.
+  - Ensures each user can create and verify their own master password during a session without permanent storage.   
+  
 - `clear()`  
   Clears the terminal screen for readability (cross-platform).  
+  
+- `startup_message()`  
+  Displays a tailored startup message:
+  - On **Heroku**, explains data is temporary and not persisted.
+  - On **local**, explains data is stored in master.key and vault.json.  
 
 - `set_master_password(user_id="default_user")`  
   Prompts the user to set a master password.  
