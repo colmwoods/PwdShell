@@ -35,6 +35,9 @@ You cannot see the master password or the password you set for an account on the
 
 > Apart from this difference in password persistence, both versions function identically.
 
+I chose this project because password management is a common real-world problem that affects every user.  
+It allowed me to explore Python concepts such as hashing, encryption, file handling, and user input validation, while building a tool I could use myself.
+
 ---
 
 The project is designed for users who:  
