@@ -147,6 +147,8 @@ Screenshot of the terminal menu structure that users interact with after logging
 | Get Account | View stored login details by account name. | ![Get Account](docs/img/features/get-password.jpg) |
 | View Accounts | List all stored accounts. | ![View Accounts](docs/img/features/view-accounts.jpg) |
 | Delete Account | Remove account from the vault.<br>Because `clear()` runs after each input, only the confirmation message is visible in the screenshot, not every input step. | ![Delete Account](docs/img/features/delete-account.jpg) |
+| Keyboard Interrupt Handling | Pressing `CTRL+C` cleanly exits the program with an error message instead of crashing, thanks to a `try/except KeyboardInterrupt` block at the bottom of run.py. | ![Keyboard Interrupt](docs/img/features/keyboard-interrupt.jpg) |
+| Invalid Menu Input | If the user enters an invalid option (e.g., `33` instead of `1–5`), the program shows a clear error message in red and prompts again, instead of crashing. | ![Invalid Input](docs/img/features/invalid-input.jpg) |
 
 
 ### Future Features
