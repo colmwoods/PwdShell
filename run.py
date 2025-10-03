@@ -127,6 +127,7 @@ def master_password(user_id="default_user"):
     Verify the master password entered by the user.
     """
     running_on_heroku = "DYNO" in os.environ
+    max_attempts = 3
 
     if running_on_heroku:  # Check If Running On Heroku
         if user_id not in PwdShell.user_sessions:  # If No Session Exists
