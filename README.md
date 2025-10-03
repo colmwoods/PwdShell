@@ -158,6 +158,7 @@ Together, these elements make the user feel secure, supported, and confident whi
 | Feature | Notes | Screenshot |
 | --- | --- | --- |
 | Master Password | Vault is protected with a SHA256 hash of the master password. | ![Master Password](docs/img/features/master-password.jpg) |
+| Master Password Attempts | Users have 3 attempts to enter the correct master password or the program ends | ![Master Password Attempts](docs/img/features/master-password-attempts.jpg) |
 | Add Account | Add username + password securely to the vault.<br>**Local**: stored in `vault.json` for persistence.<br>**Heroku**: stored only in session memory (cleared when restarted).<br>The password input itself is hidden using the `getpass` method for security.<br>Because `clear()` runs after each input, only the confirmation message is visible in the screenshot, not every input step. | ![Add Account](docs/img/features/add-account.jpg) |
 | Get Account | View stored login details by account name. | ![Get Account](docs/img/features/get-password.jpg) |
 | View Accounts | List all stored accounts. | ![View Accounts](docs/img/features/view-accounts.jpg) |
