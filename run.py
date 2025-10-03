@@ -138,9 +138,14 @@ def master_password(user_id="default_user"):
             if attempt == PwdShell.user_sessions[user_id]:  # Verify Password
                 print("🔓 Access granted.")
                 return True
-            else:  # Incorrect Password
-                print(ERROR + "Incorrect master password. Exiting." + RESET)
-                return False
+            else: # Incorrect Password
+                remaining = max_attempts - (attempt_num + 1) # Remaining Attempts
+                if remaining > 0: # If Can Retry
+                    print(f"❌ Incorrect. {remaining} attempts left.")
+                else: # No More Attempts
+                    print("❌ Too many failed attempts. Exiting.")
+                    return False
+            
 
     else:
         if not os.path.exists("master.key"):  # If No Master Key File Exists
