@@ -141,9 +141,9 @@ def master_password(user_id="default_user"):
             else: # Incorrect Password
                 remaining = max_attempts - (attempt_num + 1) # Remaining Attempts
                 if remaining > 0: # If Can Retry
-                    print(f"❌ Incorrect. {remaining} attempts left.")
+                    print(ERROR + f"Incorrect. {remaining} attempts left." + RESET)
                 else: # No More Attempts
-                    print("❌ Too many failed attempts. Exiting.")
+                    print(ERROR + "Too many failed attempts. Exiting." + RESET)
                     return False
             
 
@@ -153,22 +153,23 @@ def master_password(user_id="default_user"):
 
         with open("master.key", "r") as f:  # Read Stored Master Key
             stored_hash = f.read().strip()  # Get Stored Hash
-
-        attempt = getpass.getpass(
-            "Enter master password: ").strip()  # Prompt For Password
-        attempt_hash = hashlib.sha256(
-            attempt.encode()).hexdigest()  # Hash Attempt
-
-        if attempt_hash == stored_hash:  # Verify Password
-            print("🔓 Access granted.")
-            return True
         
-        remaining = max_attempts - (attempt_num + 1) # Remaining Attempts
-        if remaining > 0: # If Can Retry
-            print(f"❌ Incorrect. {remaining} attempts left.")
-        else: # No More Attempts
-            print("❌ Too many failed attempts. Exiting.")
-            return False
+        for attempt_num in range(max_attempts): # Allow Limited Attempts
+            attempt = getpass.getpass(
+                "Enter master password: ").strip()  # Prompt For Password
+            attempt_hash = hashlib.sha256(
+                attempt.encode()).hexdigest()  # Hash Attempt
+
+            if attempt_hash == stored_hash:  # Verify Password
+                print("🔓 Access granted.")
+                return True
+        
+            remaining = max_attempts - (attempt_num + 1) # Remaining Attempts
+            if remaining > 0: # If Can Retry
+                print(ERROR + f"Incorrect. {remaining} attempts left." + RESET)
+            else: # No More Attempts
+                print(ERROR + "Too many failed attempts. Exiting." + RESET)
+                return False
 
 def load_key():
     """
