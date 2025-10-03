@@ -133,13 +133,14 @@ def master_password(user_id="default_user"):
         if user_id not in PwdShell.user_sessions:  # If No Session Exists
             set_master_password(user_id)  # Prompt To Set Master Password
 
-        attempt = getpass.getpass("Enter master password: ").strip()
-        if attempt == PwdShell.user_sessions[user_id]:  # Verify Password
-            print("🔓 Access granted.")
-            return True
-        else:  # Incorrect Password
-            print(ERROR + "Incorrect master password. Exiting." + RESET)
-            return False
+        for attempt_num in range(max_attempts): # Allow Limited Attempts
+            attempt = getpass.getpass("Enter master password: ").strip()
+            if attempt == PwdShell.user_sessions[user_id]:  # Verify Password
+                print("🔓 Access granted.")
+                return True
+            else:  # Incorrect Password
+                print(ERROR + "Incorrect master password. Exiting." + RESET)
+                return False
 
     else:
         if not os.path.exists("master.key"):  # If No Master Key File Exists
