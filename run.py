@@ -133,28 +133,31 @@ def master_password(user_id="default_user"):
         if user_id not in PwdShell.user_sessions:  # If No Session Exists
             set_master_password(user_id)  # Prompt To Set Master Password
 
-        for attempt_num in range(max_attempts): # Allow Limited Attempts
+        for attempt_num in range(max_attempts):  # Allow Limited Attempts
             attempt = getpass.getpass("Enter master password: ").strip()
             if attempt == PwdShell.user_sessions[user_id]:  # Verify Password
                 print("🔓 Access granted.")
                 return True
-            else: # Incorrect Password
-                remaining = max_attempts - (attempt_num + 1) # Remaining Attempts
-                if remaining > 0: # If Can Retry
-                    print(ERROR + f"Incorrect. {remaining} attempts left." + RESET)
-                else: # No More Attempts
+            else:  # Incorrect Password
+                remaining = max_attempts - \
+                    (attempt_num + 1)  # Remaining Attempts
+                if remaining > 0:  # If Can Retry
+                    print(
+                        ERROR +
+                        f"Incorrect. {remaining} attempts left." +
+                        RESET)
+                else:  # No More Attempts
                     print(ERROR + "Too many failed attempts. Exiting." + RESET)
                     return False
-            
 
-    else: # If Running Locally
+    else:  # If Running Locally
         if not os.path.exists("master.key"):  # If No Master Key File Exists
             set_master_password(user_id)  # Prompt To Set Master Password
 
         with open("master.key", "r") as f:  # Read Stored Master Key
             stored_hash = f.read().strip()  # Get Stored Hash
-        
-        for attempt_num in range(max_attempts): # Allow Limited Attempts
+
+        for attempt_num in range(max_attempts):  # Allow Limited Attempts
             attempt = getpass.getpass(
                 "Enter master password: ").strip()  # Prompt For Password
             attempt_hash = hashlib.sha256(
@@ -163,13 +166,14 @@ def master_password(user_id="default_user"):
             if attempt_hash == stored_hash:  # Verify Password
                 print("🔓 Access granted.")
                 return True
-        
-            remaining = max_attempts - (attempt_num + 1) # Remaining Attempts
-            if remaining > 0: # If Can Retry
+
+            remaining = max_attempts - (attempt_num + 1)  # Remaining Attempts
+            if remaining > 0:  # If Can Retry
                 print(ERROR + f"Incorrect. {remaining} attempts left." + RESET)
-            else: # No More Attempts
+            else:  # No More Attempts
                 print(ERROR + "Too many failed attempts. Exiting." + RESET)
                 return False
+
 
 def load_key():
     """
